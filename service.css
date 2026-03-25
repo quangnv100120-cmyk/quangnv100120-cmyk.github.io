@@ -1,0 +1,195 @@
+/* ===== SERVICE PAGE SPECIFIC STYLES ===== */
+.service-hero {
+    position: relative;
+    width: 100%;
+    height: 640px;
+    /* Figma absolute constraint */
+    overflow: hidden;
+    background-color: #06110a;
+}
+
+.service-hero-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Gradient Overlay at Bottom (1/3th of height) */
+.service-hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 33.33%;
+    background: linear-gradient(180deg, rgba(33, 41, 54, 0.00) 0%, #06110A 100%);
+    z-index: 2;
+}
+
+
+
+.service-hero-content {
+    position: absolute;
+    top: 337px;
+    left: 92px;
+    z-index: 3;
+    max-width: 817px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-hero-title {
+    font-family: "Playfair Display", "Playfair", var(--font-serif);
+    font-size: 56px;
+    font-weight: 600;
+    /* SemiBold */
+    color: white;
+    margin: 0;
+    line-height: 1;
+    /* Leading normal */
+}
+
+.service-hero-desc {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 24px;
+    color: #dedede;
+    line-height: 32px;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Detailed Sections */
+.service-page-main {
+    background-color: var(--bg-white);
+    padding: 120px 0 68px 0;
+}
+
+.service-detail-section {
+    width: 100%;
+    padding: 0 80px;
+    /* Aligned exactly to Figma px-[80px] measurement */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 68px;
+    margin-bottom: 68px;
+}
+
+.service-detail-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 100px;
+    width: 100%;
+}
+
+.service-detail-left {
+    flex: 1;
+    /* Phục hồi lại cơ chế Fill Container (tỷ lệ 1:1 với cột phải) */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-detail-title {
+    font-family: "Playfair", "Playfair Display", var(--font-serif);
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--text-primary, #212936);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.service-detail-desc {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 20px;
+    color: var(--text-secondary);
+    /* #586689 */
+    line-height: 28px;
+    font-weight: normal;
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.service-detail-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+}
+
+.service-detail-list {
+    list-style-type: disc;
+    padding-left: 30px;
+    /* ms-[30px] exact Figma metric */
+    margin: 0;
+}
+
+.service-detail-list li {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 20px;
+    color: var(--text-primary);
+    /* #212936 */
+    line-height: 32px;
+    margin: 0;
+}
+
+.service-cta-btn {
+    background-color: var(--color-brand, #0546b4);
+    color: white;
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 20px;
+    line-height: 34px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 28px;
+    border-radius: 64px;
+    gap: 20px;
+    transition: background-color 0.2s ease;
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.service-cta-btn:hover {
+    background-color: #03369a;
+}
+
+.service-cta-btn:active {
+    background-color: #022881;
+}
+
+.service-detail-line {
+    width: 100%;
+    height: 1px;
+    background-color: #cfd8e7;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    .service-detail-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .service-hero {
+        height: auto;
+        padding-bottom: 80px;
+    }
+
+    .service-hero-content {
+        position: relative;
+        top: 200px;
+        left: 40px;
+        padding-right: 40px;
+    }
+}

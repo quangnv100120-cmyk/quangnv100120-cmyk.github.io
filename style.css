@@ -1,0 +1,1421 @@
+:root {
+    --color-brand: #0546b4;
+    --color-brand-hover: #043891;
+    --color-warning: #ea8823;
+    --color-warning-hover: #cf761a;
+    --text-primary: #212936;
+    --text-secondary: #586689;
+    --text-tertiary: #98a2b2;
+    --bg-light: #f2f6fc;
+    --bg-white: #ffffff;
+
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+
+    --transition-fast: 0.2s ease-in-out;
+    --transition-smooth: 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    background-color: var(--bg-white);
+    line-height: 1.5;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Utilities */
+.font-sans {
+    font-family: var(--font-sans);
+}
+
+.font-serif {
+    font-family: var(--font-serif);
+}
+
+.italic {
+    font-style: italic;
+}
+
+.text-center {
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+.title-text {
+    color: var(--text-primary);
+}
+
+/* Layout Utilities */
+.container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.gap-8 {
+    gap: 8px;
+}
+
+.gap-16 {
+    gap: 16px;
+}
+
+.gap-24 {
+    gap: 24px;
+}
+
+.gap-32 {
+    gap: 32px;
+}
+
+.gap-48 {
+    gap: 48px;
+}
+
+.gap-56 {
+    gap: 56px;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+/* Buttons & Links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    position: relative;
+    height: 785px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.7);
+}
+
+.header {
+    position: absolute;
+    top: 32px;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 0 40px;
+}
+
+.nav-pill {
+    background: rgba(255, 255, 255, 0.32);
+    backdrop-filter: blur(8px);
+    padding: 4px;
+    border-radius: 7px;
+    display: flex;
+    gap: 4px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-item {
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    color: var(--bg-white);
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-item.active {
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+    z-index: 2;
+    max-width: 961px;
+}
+
+.hero-expertise {
+    color: var(--color-warning);
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.hero-line {
+    width: 192px;
+    height: 2px;
+    background-color: var(--color-warning);
+}
+
+.hero-title {
+    font-size: 56px;
+    color: var(--bg-white);
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+/* ===== STATS SECTION ===== */
+.stats-section {
+    background-color: #f2f6fc;
+    border-radius: 12px;
+    padding: 56px;
+    margin: 100px 40px 150px 40px;
+    /* Reduced top margin to 100px */
+    position: relative;
+    z-index: 5;
+}
+
+.stats-grid {
+    display: flex;
+    gap: 100px;
+    align-items: flex-start;
+}
+
+.stats-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.stats-title {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 48px;
+    font-weight: 450;
+    line-height: 56px;
+    color: var(--text-primary);
+}
+
+.stats-subtitle {
+    font-family: "BHN Victor Serif", "Playfair Display", serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--color-brand);
+    font-style: italic;
+    line-height: 48px;
+}
+
+.stats-desc {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 24px;
+    font-weight: 450;
+    line-height: 32px;
+    color: var(--text-primary);
+}
+
+.stats-numbers {
+    width: 471px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #cfd8e7;
+    padding-bottom: 24px;
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.stat-number {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 60px;
+    color: var(--color-warning);
+    font-weight: 450;
+}
+
+.stat-label {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+/* ===== SCROLL STORY QUOTE SECTION ===== */
+.quote-section {
+    position: relative;
+    height: 250vh;
+    /* gives room for the scroll storytelling */
+    width: 100%;
+    background-color: var(--bg-white);
+}
+
+.sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.quote-text {
+    width: 100%;
+    max-width: 1187px;
+    padding: 0 20px;
+    text-align: center;
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 68px;
+    color: var(--text-primary, #212936);
+}
+
+.story-line {
+    color: var(--text-tertiary, #98A2B2);
+    transition: color 0.5s ease-out;
+    margin-bottom: 0px;
+    /* Assuming line-height 68px controls the spacing perfectly */
+}
+
+.story-line.active {
+    color: var(--text-primary);
+}
+
+/* ===== PEOPLE SECTION (Section 7) ===== */
+.people-section {
+    padding: 300px 40px 150px 40px;
+    /* Doubled top padding to 300px to clear stacked cards */
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+    background-color: var(--bg-white);
+}
+
+.people-section .section-title {
+    margin-bottom: 0;
+    max-width: 1360px;
+    width: 100%;
+    font-size: 48px;
+    font-weight: 400;
+    /* Reduced to normal (Roman 55) */
+    line-height: 56px;
+    /* Exact Figma leading constraint */
+    text-align: center;
+}
+
+.people-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+.people-hero-img {
+    width: 100%;
+    height: 730px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.people-bottom {
+    display: flex;
+    gap: 42px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.people-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+}
+
+.people-heading {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 40px;
+    font-weight: 450;
+    line-height: 48px;
+    color: var(--text-primary);
+}
+
+.people-desc {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 24px;
+    line-height: 32px;
+    color: var(--text-primary);
+}
+
+.people-images {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.people-img-wrapper {
+    width: 265px;
+    height: 300px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.people-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.people-img-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 50%, rgba(0, 0, 0, 0.3) 100%);
+    pointer-events: none;
+}
+
+/* ===== HISTORY SECTION ===== */
+.history-section {
+    padding: 56px 0 150px 0;
+    /* 56px top clearance */
+}
+
+.history-layout {
+    display: flex;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.history-left {
+    width: 50%;
+    flex-shrink: 0;
+    padding-left: 100px;
+    /* 100px absolute left padding (Vị trí ban đầu) */
+    padding-right: 40px;
+    box-sizing: border-box;
+    /* CRITICAL: Prevent padding from expanding past 50% width */
+}
+
+.history-right {
+    width: 50%;
+    flex-shrink: 0;
+    position: relative;
+    padding-left: 48px;
+    /* Dịch cụm timeline sang trái đúng 32px (80px - 32px = 48px) */
+    padding-right: 80px;
+    /* Giữ nguyên 80px margin phải trên mọi màn hình */
+    box-sizing: border-box;
+}
+
+.history-title {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 48px;
+    font-weight: 450;
+    line-height: 56px;
+    color: var(--text-primary);
+    position: sticky;
+    top: 56px;
+    /* Sticky clearance matches section padding */
+}
+
+.timeline {
+    position: relative;
+    padding-left: 60px;
+}
+
+.timeline-progress-line {
+    position: absolute;
+    left: 0;
+    /* Aligned precisely with the dot center at x=0 of relative timeline */
+    top: 32px;
+    width: 1px;
+    /* Thinned to 1px per user request */
+    background-color: #cfd8e7;
+    /* Inactive line color gray */
+    z-index: 1;
+    height: 0px;
+    transform: translateX(-50%);
+    transform-origin: top;
+    will-change: height;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 60px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -60px;
+    top: 32px;
+    /* Adjusted to align with 56px font */
+    transform: translate(-50%, -50%) scale(0.5);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #cfd8e7;
+    /* Inactive dot color */
+    z-index: 2;
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease, background-color 0.4s ease;
+}
+
+.timeline-item.active .timeline-dot {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    background-color: var(--color-brand);
+    /* Active dot is Blue #0546b4 */
+}
+
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Matched Figma spacing gap-[20px] */
+}
+
+.timeline-year {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 56px;
+    font-weight: 450;
+    line-height: normal;
+    color: var(--text-secondary);
+    /* Inactive year color #586689 */
+    transition: color 0.4s ease;
+}
+
+.timeline-item.active .timeline-year {
+    color: var(--color-brand);
+    /* Active year color is Blue #0546b4 */
+}
+
+.timeline-desc {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 24px;
+    font-weight: 450;
+    line-height: 32px;
+    color: var(--text-tertiary);
+    /* Inactive description is #98a2b2 */
+    transition: color 0.4s ease;
+}
+
+.timeline-item.active .timeline-desc {
+    color: var(--text-primary);
+    /* Active description is dark #212936 */
+}
+
+
+/* ===== CULTURE SECTION (Section 5) ===== */
+.culture-section {
+    padding: 150px 0;
+    position: relative;
+    width: 100%;
+}
+
+.culture-bg-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: rgba(207, 216, 231, 0.5);
+    /* subtle grid line */
+    z-index: 1;
+}
+
+.culture-bg-line.left {
+    left: 20%;
+}
+
+.culture-bg-line.right {
+    right: 20%;
+}
+
+.culture-header {
+    margin-bottom: 200px;
+    max-width: 695px;
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    padding-left: 40px;
+}
+
+.culture-title {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 48px;
+    font-weight: 450;
+    line-height: 56px;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+}
+
+.culture-desc {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 24px;
+    line-height: 32px;
+    color: var(--text-primary);
+    font-weight: 450;
+}
+
+.culture-timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 80vh;
+    /* Smooth Yo-Yo Parallax Gap */
+    padding-top: 10vh;
+    padding-bottom: 20vh;
+    z-index: 2;
+}
+
+.culture-star-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.culture-sticky-star {
+    position: absolute;
+    top: 0;
+    left: calc(50% + 2px);
+    /* Shifted 2px right */
+    transform: translate(-50%, -50%);
+    width: 191px;
+    height: 199px;
+    filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.25));
+    will-change: transform;
+}
+
+.culture-sticky-star img {
+    width: 140%;
+    height: 140%;
+    object-fit: contain;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.culture-center-line {
+    position: absolute;
+    left: 50%;
+    top: -150px;
+    bottom: -150px;
+    width: 1px;
+    background-color: #cfd8e7;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 600;
+    /* Semantic SemiBold requested from Figma */
+    line-height: 68px;
+    color: white;
+    /* Contrast layer verified on hero card */
+    max-width: 961px;
+    margin: 0 auto;
+    text-align: center;
+
+    /* Anti-layout shift box logic for literal text swap */
+    min-height: 136px;
+    /* Exactly reserves the metric for 2 lines under a 68px leading */
+    display: flex;
+    align-items: flex-start;
+    /* Pulled text to ceiling origin as requested */
+    justify-content: center;
+
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+        filter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-title.fade-out {
+    opacity: 0;
+    transform: translateY(-15px);
+    filter: blur(8px);
+}
+
+.hero-title.fade-prep {
+    opacity: 0;
+    transform: translateY(15px);
+    filter: blur(8px);
+    transition: none;
+    /* Move boundary instantly without animation */
+}
+
+.culture-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    opacity: 0.15;
+    filter: blur(8px);
+    /* Cinematic out-of-focus unrevealed state */
+    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+        filter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.culture-item.active {
+    opacity: 1;
+    filter: blur(0px);
+    /* Dialing into sharp focus */
+}
+
+
+
+
+.culture-item-content {
+    width: 50%;
+}
+
+.culture-item.right .culture-item-content {
+    margin-left: 50%;
+    padding-left: 140px;
+    /* Increased by 40px from edge of star */
+}
+
+.culture-item.left .culture-item-content {
+    margin-right: 50%;
+    padding-right: 140px;
+    /* Increased by 40px from edge of star */
+    text-align: right;
+}
+
+.culture-item-title {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 40px;
+    line-height: 56px;
+    color: var(--color-warning);
+    /* #ea8823 */
+    margin-bottom: 16px;
+    font-weight: 450;
+}
+
+.culture-item-desc {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 24px;
+    line-height: 32px;
+    color: var(--text-primary);
+    font-weight: 450;
+}
+
+/* ===== SERVICES SECTION (Section 6) ===== */
+.services-section {
+    padding: 240px 40px 0 40px;
+    /* Enhanced top clearance for Absolute Title; 0 bottom runway */
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--bg-white);
+}
+
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    /* Slight bump gives time to appreciate the first card before the overlap */
+    position: relative;
+    padding-bottom: 0px;
+    /* Killed runway for instant flush cutoff */
+}
+
+.service-feature-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: visible;
+    /* Must be visible so title above card is not clipped */
+    width: 100%;
+    height: 579px;
+    box-sizing: border-box;
+    color: white;
+
+    position: sticky;
+    /* Apple-style stacked cards logic — PRESERVED */
+    top: 20vh;
+    box-shadow: 0 -12px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+/* Section title — absolute above the card, inherits sticky from card */
+.services-section-title {
+    position: absolute;
+    bottom: calc(100% + 52px);
+    left: 0;
+    width: 100%;
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 48px;
+    font-weight: 450;
+    text-align: center;
+    color: var(--text-primary);
+    line-height: 56px;
+    margin: 0;
+    z-index: 9;
+}
+
+.service-feature-card.theme-blue {
+    z-index: 10;
+}
+
+.service-feature-card.theme-orange {
+    z-index: 11;
+}
+
+/* Background gradient image — fills entire card */
+.service-card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 12px;
+    /* Match card rounding */
+}
+
+/* 3D render object — floats upper-right */
+.service-card-3d {
+    position: absolute;
+    top: -1px;
+    right: 0;
+    width: 558px;
+    height: 482px;
+    object-fit: cover;
+    z-index: 2;
+    pointer-events: none;
+    border-top-right-radius: 12px;
+    /* Clip to card corner */
+}
+
+.service-feature-card.theme-orange .service-card-3d {
+    width: 598px;
+    height: 399px;
+}
+
+.service-feature-card.theme-orange .service-feature-list {
+    color: #FFFFFF;
+}
+
+/* Text content overlay — left-aligned */
+.service-card-overlay {
+    position: absolute;
+    top: 68px;
+    left: 56px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 639px;
+}
+
+.service-feature-title {
+    font-size: 48px;
+    font-weight: 450;
+    line-height: 56px;
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    color: white;
+    margin: 0 0 36px 0;
+}
+
+.service-feature-list-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.service-feature-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+    line-height: 32px;
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    color: #e3e3e3;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.service-feature-list li {
+    position: relative;
+    padding-left: 36px;
+}
+
+.service-feature-list li::before {
+    content: '•';
+    position: absolute;
+    left: 12px;
+    top: 0;
+}
+
+.service-feature-btn {
+    position: absolute;
+    bottom: 56px;
+    left: 56px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 16px 16px;
+    color: var(--text-primary, #212936);
+    font-size: 20px;
+    font-weight: 450;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    z-index: 3;
+    line-height: 24px;
+}
+
+.service-feature-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-feature-card.theme-blue .service-feature-btn:hover {
+    color: var(--text-primary);
+}
+
+.service-feature-card.theme-orange .service-feature-btn:hover {
+    color: var(--text-primary);
+}
+
+/* ===== HUMAN FACTORS ===== */
+.team-section {
+    padding: 100px 0;
+}
+
+.team-image {
+    width: 100%;
+    height: 730px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+.team-content {
+    display: flex;
+    gap: 42px;
+}
+
+.team-text {
+    flex: 1;
+}
+
+.team-heading {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.team-desc {
+    font-size: 24px;
+    color: var(--text-secondary);
+}
+
+.team-grid {
+    display: flex;
+    gap: 24px;
+}
+
+.team-grid img {
+    width: 265px;
+    height: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* ===== CSR SECTION (Section 8) ===== */
+.csr-section {
+    padding: 150px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+    background-color: var(--bg-white);
+    width: 100%;
+}
+
+.csr-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.csr-title {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 48px;
+    font-weight: 400;
+    /* Roman */
+    line-height: 56px;
+    color: var(--text-primary);
+    text-align: center;
+    margin: 0;
+}
+
+.csr-subtitle {
+    font-size: 40px;
+    font-weight: normal;
+    /* Disables default h3 bolding */
+    line-height: 48px;
+    color: var(--color-brand);
+    margin: 0;
+}
+
+.csr-container {
+    position: relative;
+    width: 100%;
+    height: 854px;
+    background-color: var(--bg-light);
+    /* rgb(242, 246, 252) */
+    overflow: hidden;
+}
+
+.csr-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 430px;
+    /* Precise crop metric assigned by Figma layout positioning */
+    height: 100%;
+}
+
+.csr-hero-image {
+    position: absolute;
+    width: 142.57%;
+    height: 103.71%;
+    top: -3.67%;
+    left: -41.88%;
+    max-width: none;
+    object-fit: cover;
+}
+
+.csr-gradient-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 913px;
+    /* Precise gradient geometry bounding box */
+    background: linear-gradient(270deg, rgb(242, 246, 252) 52.316%, rgba(242, 246, 252, 0.953) 61.685%, rgba(242, 246, 252, 0.827) 69.147%, rgba(242, 246, 252, 0.714) 78.202%, rgba(242, 246, 252, 0) 90.618%);
+    z-index: 1;
+}
+
+.csr-cards {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 711px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 2;
+}
+
+.csr-card {
+    background-color: white;
+    border: 1px solid #eef1f2;
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.csr-card-title {
+    font-size: 32px;
+    font-weight: normal;
+    /* Disables default h4 bolding */
+    line-height: 40px;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.csr-card-desc {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+/* ===== VISION & MISSION ===== */
+.vision-mission {
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.vm-row {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.vm-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.vm-text {
+    flex: 1;
+}
+
+.vm-title {
+    font-size: 40px;
+    color: var(--color-warning);
+    margin-bottom: 16px;
+}
+
+.vm-desc {
+    font-size: 24px;
+}
+
+.vm-image {
+    width: 191px;
+    height: 199px;
+    border-radius: 50% 0 50% 50%;
+    object-fit: cover;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== PARTNERS SECTION (Section 9) ===== */
+.partners-section {
+    padding: 150px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+    background-color: var(--bg-white);
+    width: 100%;
+}
+
+.partners-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.partners-title {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 56px;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.partners-subtitle {
+    font-size: 40px;
+    font-weight: normal;
+    /* Disables h3 faux bold */
+    line-height: 48px;
+    color: var(--color-brand);
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.partners-grid-wrapper {
+    width: 100%;
+    /* Gradient line background. Visible through gaps to form Grid borders without extra divs */
+    background: linear-gradient(to bottom, rgba(218, 228, 230, 0) 5%, #dae4e6 46%, #dae4e6 54%, rgba(218, 228, 230, 0) 103%);
+}
+
+.border-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 236px;
+    gap: 2px;
+    /* Creates the border lines */
+    background: transparent;
+}
+
+.partner-cell {
+    background-color: white;
+    /* Blocks background everywhere except inside the gap */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.partner-logo-img {
+    max-width: 180px;
+    max-height: 120px;
+    object-fit: contain;
+    /* User request: Default state gray, opacity lowered slightly for inactive feel */
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* User request: Hover state returns to original color */
+.partner-cell:hover .partner-logo-img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+    /* Premium hover enlargement */
+}
+
+@media (max-width: 1200px) {
+    .border-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .border-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .border-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 120px;
+    }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background-color: var(--color-brand);
+    color: var(--bg-white);
+    padding: 40px 80px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    /* CRITICAL: prevent padding-induced overflow */
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    width: 100%;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 467px;
+}
+
+.footer-logo {
+    height: 30px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.footer-company-name {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.2;
+    color: white;
+    letter-spacing: 0;
+    margin: 0;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+}
+
+.footer-nav a {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 16px;
+    color: white;
+    letter-spacing: 0;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-nav a:hover {
+    opacity: 0.7;
+}
+
+.footer-line {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.contact-text {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 14px;
+    line-height: 1.4;
+    color: white;
+    letter-spacing: 0;
+    margin: 0;
+    max-width: 423px;
+}
+
+/* Utility Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-100 {
+    transition-delay: 100ms;
+}
+
+.delay-200 {
+    transition-delay: 200ms;
+}
+
+.delay-300 {
+    transition-delay: 300ms;
+}
+
+.delay-400 {
+    transition-delay: 400ms;
+}
