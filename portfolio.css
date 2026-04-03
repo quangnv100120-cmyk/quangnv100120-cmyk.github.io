@@ -1,12 +1,24 @@
 /* ===== PORTFOLIO PAGE STYLES ===== */
 
+/* Global heading anti-faux-bold reset — prevents browser bold on all headings */
+.portfolio-hero h1,
+.portfolio-hero h2,
+.portfolio-hero h3,
+.portfolio-main h2,
+.portfolio-main h3,
+.portfolio-main h4 {
+    font-weight: normal;
+}
+
 .portfolio-hero {
     position: relative;
     width: 100%;
     height: 640px;
     overflow: hidden;
-    background-color: #696969; /* Fallback for image */
+    background-color: #696969;
+    /* Fallback for image */
 }
+
 .portfolio-hero-bg {
     position: absolute;
     top: 50%;
@@ -18,6 +30,7 @@
     pointer-events: none;
     z-index: 1;
 }
+
 .portfolio-hero-overlay {
     position: absolute;
     top: 0;
@@ -26,7 +39,8 @@
     height: 33.33%;
     background: linear-gradient(180deg, rgba(33, 41, 54, 0) 0%, #06110A 100%);
     z-index: 2;
-    transform: scaleY(-1); /* Darken top for menu */
+    transform: scaleY(-1);
+    /* Darken top for menu */
 }
 
 /* Floating Pill Navigation */
@@ -43,6 +57,7 @@
     border-radius: 7px;
     z-index: 10;
 }
+
 .portfolio-hero-nav-pill a {
     text-decoration: none;
     display: flex;
@@ -57,6 +72,7 @@
     color: white;
     transition: background-color 0.2s, color 0.2s;
 }
+
 .portfolio-hero-nav-pill a.active {
     background-color: rgba(255, 255, 255, 0.8);
     color: var(--text-primary, #212936);
@@ -73,20 +89,22 @@
     flex-direction: column;
     gap: 12px;
 }
+
 .portfolio-hero-title {
     font-family: "Playfair Display", "Playfair", var(--font-serif);
     font-size: 56px;
-    font-weight: 600;
+    font-weight: normal; /* Đưa về mảnh khảnh sang trọng đúng gu */
     color: white;
     margin: 0;
     line-height: 1;
 }
+
 .portfolio-hero-desc {
     font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
     font-size: 24px;
     color: #dedede;
     line-height: 32px;
-    font-weight: normal; 
+    font-weight: normal;
     margin: 0;
     max-width: 720px;
 }
@@ -106,14 +124,15 @@
     margin-bottom: 77px;
     align-items: stretch;
 }
+
 .tab-item {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
-    padding: 0 40px;
+    padding: 20px 12px 0;
     min-height: 96px;
     cursor: pointer;
     font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", var(--font-sans);
@@ -123,9 +142,11 @@
     line-height: 28px;
     text-transform: uppercase;
 }
+
 .tab-item.active {
     color: #1b1a1a;
 }
+
 .tab-indicator {
     position: absolute;
     bottom: -1px;
@@ -135,8 +156,57 @@
     height: 3px;
     background-color: transparent;
 }
+
 .tab-item.active .tab-indicator {
-    background-color: #03369a; /* Active blue border */
+    background-color: #03369a;
+}
+
+/* Tab Panels */
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* Coming Soon Panel */
+.coming-soon-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 480px;
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.coming-soon-icon {
+    width: 96px;
+    height: 96px;
+    background-color: #f2f6fc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.coming-soon-title {
+    font-family: "BHN Neue Haas Grotes", var(--font-sans);
+    font-size: 36px;
+    color: #212936;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+.coming-soon-desc {
+    font-family: "BHN Neue Haas Grotes", var(--font-sans);
+    font-size: 18px;
+    color: #98a2b2;
+    margin: 0;
+    max-width: 480px;
+    line-height: 28px;
 }
 
 /* Stats Container */
@@ -144,6 +214,7 @@
     padding: 0 40px;
     margin-bottom: 150px;
 }
+
 .portfolio-stats-wrapper {
     background-color: #f2f6fc;
     border-radius: 12px;
@@ -153,6 +224,7 @@
     justify-content: center;
     align-items: flex-start;
 }
+
 .stat-box {
     display: flex;
     flex-direction: column;
@@ -161,6 +233,7 @@
     width: 306px;
     gap: 16px;
 }
+
 .stat-icon {
     width: 80px;
     height: 80px;
@@ -169,16 +242,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 4px 20px 0px rgba(0,0,0,0.08);
-    margin-bottom: 8px; /* Offset gap since icon is not directly inside text block */
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.08);
+    margin-bottom: 8px;
+    /* Offset gap since icon is not directly inside text block */
 }
+
 .stat-title {
     font-family: "BHN Neue Haas Grotes", var(--font-sans);
     font-size: 24px;
+    font-weight: normal;
     color: var(--text-primary, #212936);
     margin: 0;
     line-height: normal;
 }
+
 .stat-desc {
     font-family: "BHN Neue Haas Grotes", var(--font-sans);
     font-size: 20px;
@@ -186,6 +263,7 @@
     margin: 0;
     line-height: 28px;
 }
+
 .stat-number {
     font-family: "BHN Neue Haas Grotes", var(--font-sans);
     font-size: 32px;
@@ -193,6 +271,7 @@
     line-height: normal;
     font-weight: normal;
 }
+
 .stat-divider {
     width: 1px;
     height: 265px;
@@ -203,43 +282,68 @@
 /* Charts Section */
 .portfolio-charts-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 54px;
-    gap: 75px;
-    margin-bottom: 150px;
+    margin-bottom: 250px;
 }
+
 .chart-container {
     flex: 1;
     position: relative;
     height: 454px;
 }
+
+.chart-full {
+    max-width: 100%;
+}
+
 .chart-header {
     display: flex;
     justify-content: space-between;
-    align-items:flex-start;
-    margin-bottom: 40px;
+    align-items: flex-start;
+    margin-bottom: 68px;
     padding-top: 6px;
 }
+
 .chart-title {
     font-family: "BHN Neue Haas Grotes", var(--font-sans);
-    font-size: 22px;
+    font-size: 24px;
     color: #191919;
-    margin: 0;
+    margin: 0px;
     line-height: 1.5;
     font-weight: normal;
 }
-.chart-dropdown {
+
+.chart-subtitle {
+    font-family: "BHN Neue Haas Grotes", var(--font-sans);
+    font-size: 14px;
+    color: #98a2b2;
+    margin: 4px 0 0 0;
+    font-weight: normal;
+}
+
+.chart-legend {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.legend-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 25px;
-    border: 1.2px solid #e7e7e7;
-    border-radius: 10px;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 15px;
-    color: #191919;
-    font-weight: 500;
-    cursor: pointer;
+    gap: 8px;
+    font-family: "BHN Neue Haas Grotes", var(--font-sans);
+    font-size: px;
+    color: #586689;
+}
+
+.legend-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    flex-shrink: 0;
 }
 
 .chart-body {
@@ -247,6 +351,7 @@
     height: 350px;
     width: 100%;
 }
+
 .grid-lines {
     position: absolute;
     top: 0;
@@ -257,12 +362,14 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
 .grid-line {
     width: 100%;
-    height: 1.24px;
-    background-color: #e7e7e7; /* or match --border-secondary */
+    height: 1px;
+    background-color: #CFD8E7;
     position: relative;
 }
+
 .grid-line::before {
     content: attr(data-label);
     position: absolute;
@@ -278,207 +385,446 @@
 
 .chart-bars-wrapper {
     position: absolute;
-    bottom: 0px; /* Align to the 0 grid line */
+    bottom: 0px;
     left: 74px;
     width: calc(100% - 74px);
     height: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end; /* Bars grow upward from bottom */
+    justify-content: space-around;
+    align-items: flex-end;
     padding: 0 10px;
-    z-index: 1; /* Above lines */
+    z-index: 1;
 }
+
 .bar-group {
     display: flex;
-    gap: 0px;
+    gap: 4px;
     align-items: flex-end;
     position: relative;
     height: 100%;
 }
+
 .bar-group::after {
     content: attr(data-month);
     position: absolute;
-    bottom: -35px; /* Place month label below the 0 grid line */
+    bottom: -40px;
     left: 50%;
     transform: translateX(-50%);
     font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 14.8px;
+    font-size: 13px;
     font-weight: 500;
     color: #757575;
+    white-space: nowrap;
 }
+
 .bar {
-    width: 25px;
-    border-radius: 0;
-}
-/* Chart 1 Colors */
-.bar-t1 { background-color: #319795; }
-.bar-t2 { background-color: #ea8823; }
-/* Chart 2 Colors */
-.bar-c1 { background-color: #00b5d8; }
-.bar-c2 { background-color: #805ad5; }
-
-
-/* Projects Timeline */
-.portfolio-projects-section {
-    display: flex;
-    width: 100%;
-    height: 839px;
+    width: 32px;
+    border-radius: 4px 4px 0 0;
     position: relative;
-    overflow: hidden;
-    margin-bottom: 120px;
+    transition: opacity 0.2s;
+    cursor: pointer;
 }
-.portfolio-projects-info {
-    width: 664px;
-    height: 100%;
-    position: relative;
-    flex-shrink: 0;
+
+.bar:hover {
+    opacity: 0.8;
 }
-.portfolio-factory-bg {
+
+.bar:hover::after {
+    content: attr(data-tooltip);
     position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #212936;
+    color: white;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* Bar Colors */
+.bar-land {
+    background-color: #0546b4;
+}
+
+.bar-gfa {
+    background-color: #319795;
+}
+
+
+/* Projects Section (New Layout 2121:477) */
+/* --- Projects Section - High Fidelity Sticky Layout --- */
+.portfolio-projects-section {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-areas: "overlay";
+    background-color: #ffffff;
+    overflow: visible; /* Cho phép sticky hoạt động mượt */
+    margin-bottom: 100px; /* Cách Footer 100px */
+}
+
+/* Background Layer - Ghim chặt vào màn hình */
+.projects-bg-wrapper {
+    grid-area: overlay;
+    position: sticky;
     top: 0;
-    left: 0;
+    width: 100%;
+    height: 100vh; 
+    z-index: 1;
+    overflow: hidden;
+}
+
+.projects-bg-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1;
+    display: block;
 }
-/* Fade factory image bottom to black (or gradient) */
-.portfolio-projects-info::after {
-    content: '';
+
+.projects-bg-gradient-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 2;
+}
+
+.projects-bg-gradient {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 239px;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(6,17,10,1) 100%);
+    height: 400px;
+    background: linear-gradient(0deg, #FFFFFF 0%, rgba(255, 255, 255, 0.9) 15%, rgba(255, 255, 255, 0) 100%);
     z-index: 2;
-    pointer-events: none;
 }
-.portfolio-projects-text {
-    position: absolute;
-    top: 64px;
+
+/* Content Layer - Đè lên nền và quyết định độ dài section */
+.projects-content-overlay {
+    grid-area: overlay;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+.projects-layout-container {
+    display: grid;
+    grid-template-columns: 1fr 570px;
+    padding: 120px 56px 0 97px; /* Tuyệt đối không để padding-bottom ở đây */
+    gap: 100px;
+    align-items: start;
+}
+
+.projects-header-left {
+    position: absolute; /* Thay đổi từ sticky sang absolute tương đối với lớp nền */
+    top: 120px;
     left: 97px;
-    z-index: 3;
-    width: 366px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    z-index: 5;
 }
-.portfolio-projects-text .section-title {
+
+
+
+.projects-display-title {
     font-family: "BHN Neue Haas Grotes", var(--font-sans);
     font-size: 48px;
-    color: var(--text-primary, #212936);
-    margin: 0;
-    line-height: 60px;
-    letter-spacing: -1.2px;
+    line-height: 56px;
+    font-weight: normal;
+    color: #101828;
+    margin-bottom: 0px;
+    letter-spacing: 0px;
 }
-.portfolio-projects-text .section-subtitle {
+
+.projects-display-subtitle {
     font-family: "BHN Neue Haas Grotes", var(--font-sans);
     font-size: 20px;
-    color: var(--text-tertiary, #98a2b2);
-    margin: 0;
+    font-style: normal;
+    font-weight: 450;
     line-height: 28px;
+    color: var(--text-tertiary, #98A2B2);
+    letter-spacing: 0px;
+    white-space: nowrap;
 }
 
-.timeline-line {
-    position: absolute;
-    top: 64px;
-    right: 0px; 
-    width: 2px;
-    height: 750px;
-    background-color: #e5e5e5;
-    z-index: 3;
-}
-.timeline-dot {
-    width: 16px;
-    height: 16px;
-    background-color: #0546b4;
-    border-radius: 50%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.timeline-dot.top-dot {
-    top: 0;
-    /* Optional: replace with exact SVG ellipse if needed */
-}
-.timeline-dot.bottom-dot {
-    bottom: 0;
-}
-
-.portfolio-projects-list {
-    flex: 1;
+/* Cards Stack */
+.projects-cards-vertical-stack {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding-left: 46px; /* distance from timeline */
-    padding-top: 64px;
-    padding-right: 55px;
-    height: 100%;
-    overflow-y: auto; /* allows scrolling inside the stack */
-    z-index: 3;
-    position: relative;
-    /* Hide scrollbar */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-.portfolio-projects-list::-webkit-scrollbar {
-    display: none;
+    padding-bottom: 0; /* Gỡ bỏ mọi khoảng trống đuôi */
 }
 
+/* Gỡ hoàn toàn scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.custom-scrollbar {
+    scrollbar-width: none;
+}
+
+/* End of project card styles */
+
+/* Reusing and Tweaking Project Card for Vertical Stack */
 .project-card {
     background-color: #ffffff;
     border: 1px solid #dbe6f7;
     border-radius: 12px;
-    padding: 24px 32px;
+    padding: 32px;
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    min-height: calc(33.33% - 8px); /* So 3 cards fit nicely */
-    flex-shrink: 0;
+    box-shadow: 0px 12px 24px -4px rgba(16, 24, 40, 0.04);
 }
+
 .project-name {
     font-family: "BHN Neue Haas Grotes", var(--font-sans);
     font-size: 28px;
+    font-weight: normal;
     color: #101828;
     margin: 0;
     line-height: 40px;
     letter-spacing: -0.53px;
 }
+
+.project-meta-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+/* --- Project Detail Modal --- */
+.project-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: flex-start; /* Cho phép Modal dài cuộn xuống, không bị cắt top */
+    padding: 60px 0; /* Gắn padding top/bottom an toàn */
+    overflow-y: auto; /* Nới Scrollbar ra Backdrop */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-modal-backdrop.active {
+    display: flex;
+    opacity: 1;
+}
+
+.project-modal-close {
+    position: absolute; /* Gắn vòng đời với Box */
+    top: 0; /* Căn ngang mép trên của khối trắng */
+    /* Luôn cách lề phải viewport chính xác 48px, min an toàn tránh overlap vào Box trên màn nhỏ: */
+    right: min(-72px, calc(-50vw + 514px)); 
+    width: 48px;
+    height: 48px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    transition: transform 0.2s ease;
+}
+
+.project-modal-close:hover {
+    transform: scale(1.05);
+}
+
+.project-modal-box {
+    background-color: #ffffff;
+    width: 932px;
+    border-radius: 10px;
+    padding: 24px;
+    position: relative;
+    margin: auto; /* Tự động gióng giữa vertically / horizontally nếu nhỏ hơn màn */
+    height: max-content; /* Lệnh "Hug content" bản chất của CSS */
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Override generic gap for precise margins */
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.project-modal-backdrop.active .project-modal-box {
+    transform: translateY(0);
+}
+
+/* Custom Scrollbar for Modal Box */
+.project-modal-box::-webkit-scrollbar {
+    width: 6px;
+}
+.project-modal-box::-webkit-scrollbar-thumb {
+    background: rgba(5, 70, 180, 0.2);
+    border-radius: 10px;
+}
+
+.project-modal-map {
+    width: 100%;
+    height: 333px;
+    border: 1.254px solid #dedede;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-bottom: 16px; /* Correct 16px spacing from Map to Header */
+}
+
+.project-modal-map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-modal-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 4px;
+    margin-bottom: 24px; /* Cập nhật spacing top của Grid lưới về đúng 24px */
+}
+
+.project-modal-title {
+    font-family: "Inter", var(--font-sans);
+    font-size: 24px;
+    font-weight: 400;
+    color: #212936;
+    margin: 0;
+    letter-spacing: -0.53px;
+}
+
+.project-modal-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "BHN Neue Haas Grotes", var(--font-sans);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.lbl-light {
+    color: #212936;
+}
+
+.lbl-strong {
+    color: #212936;
+    font-weight: 400; /* As per design spec */
+}
+
+/* Details Grid */
+.project-modal-grid {
+    display: flex;
+    gap: 56px;
+    padding: 0 4px;
+}
+
+.grid-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-secondary, #cfd8e7);
+    font-family: "BHN Neue Haas Grotes", var(--font-sans);
+    font-size: 16px;
+    line-height: 28px;
+}
+
+.grid-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.grid-row .label {
+    color: var(--text-secondary, #586689);
+}
+
+.grid-row .value {
+    color: var(--text-primary, #212936);
+}
+
+.badge {
+    padding: 0 8px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: "BHN Neue Haas Grotes", var(--font-sans);
+    line-height: 28px;
+    letter-spacing: -0.44px;
+}
+
+.badge-success {
+    background-color: var(--color-green-50, #e5ffec);
+    color: var(--foreground-success, #38a169);
+}
+
 .project-meta {
     display: flex;
     gap: 8px;
     align-items: center;
     font-family: "BHN Neue Haas Grotes", var(--font-sans);
     font-size: 20px;
+    line-height: 28px;
 }
+
+.project-meta p {
+    margin: 0;
+}
+
 .project-meta .meta-label {
-    color: var(--text-primary, #212936);
+    color: #212936;
 }
+
 .project-meta .meta-value {
-    color: var(--text-secondary, #586689);
+    color: #586689;
 }
 
 .project-stats {
     display: flex;
     gap: 56px;
 }
+
 .stat-col {
     display: flex;
     flex-direction: column;
 }
+
 .stat-lbl {
-    font-family: "BHN Neue Haas Grotes", var(--font-sans);
     font-size: 16px;
     color: #6a7282;
     line-height: 24px;
 }
+
 .stat-val {
-    font-family: "BHN Neue Haas Grotes", var(--font-sans);
     font-size: 24px;
     color: #101828;
-    line-height: 36px;
+    line-height: 32px;
 }
 
 .project-card-grid {
@@ -489,18 +835,17 @@
     height: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
     gap: 5px;
     opacity: 0.12;
 }
+
 .project-card-grid::before {
-    /* Hack to generate 9 dots without extra DOM nodes via CSS shadow or just background */
     content: '';
-    width: 5px; height: 5px;
+    width: 5px;
+    height: 5px;
     background-color: #0546b4;
     border-radius: 50%;
-    grid-column: 1 / 4; grid-row: 1 / 4;
-    box-shadow: 
+    box-shadow:
         0 0 0 0 #0546b4, 12px 0 0 0 #0546b4, 24px 0 0 0 #0546b4,
         0 12px 0 0 #0546b4, 12px 12px 0 0 #0546b4, 24px 12px 0 0 #0546b4,
         0 24px 0 0 #0546b4, 12px 24px 0 0 #0546b4, 24px 24px 0 0 #0546b4;
@@ -519,6 +864,7 @@
     justify-content: center;
     transition: transform 0.2s;
 }
+
 .project-card-btn:hover {
     transform: scale(1.05);
 }
@@ -529,25 +875,108 @@
         flex-direction: column;
         align-items: center;
     }
+
     .stat-divider {
         width: 265px;
         height: 1px;
     }
+
     .portfolio-charts-section {
         flex-direction: column;
     }
-    .portfolio-projects-section {
-        flex-direction: column;
-        height: auto;
+
+    .projects-cards-grid {
+        grid-template-columns: 1fr;
+        padding: 0 40px;
+        margin-top: -60px;
     }
-    .portfolio-projects-info {
+
+    .projects-bg-wrapper {
+        height: 500px;
+    }
+
+    .projects-bg-text {
+        left: 40px;
+    }
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+@media screen and (max-width: 768px) {
+    .portfolio-hero-content {
+        top: 150px;
+        left: 20px;
+        right: 20px;
+        width: auto;
+    }
+    .portfolio-hero-title {
+        font-size: 40px;
+    }
+    .portfolio-hero-desc {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    /* Tabs */
+    .portfolio-tabs-nav {
         width: 100%;
-        height: 400px;
+        overflow-x: auto;
+        padding: 0 20px;
+        margin-top: 60px;
+        gap: 16px;
     }
-    .portfolio-projects-list {
-        padding: 20px;
+    .tab-item {
+        min-width: max-content;
+        font-size: 16px;
+        padding: 12px 12px 0;
     }
-    .timeline-line {
-        display: none;
+
+    /* Stats */
+    .portfolio-stats-container {
+        padding: 0 20px;
+        margin-bottom: 80px;
+    }
+    .portfolio-stats-wrapper {
+        flex-direction: column;
+        padding: 32px 20px;
+        gap: 32px;
+    }
+    .stat-box {
+        width: 100%;
+    }
+
+    /* Projects Layout */
+    .projects-layout-container {
+        display: flex;
+        flex-direction: column;
+        padding: 60px 20px 0 20px;
+        gap: 40px;
+    }
+    .projects-header-left {
+        position: static;
+        top: auto;
+        left: auto;
+    }
+    .projects-display-title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .project-card {
+        padding: 24px;
+    }
+
+    /* Modal */
+    .project-modal-box {
+        width: 90vw;
+        padding: 32px 20px;
+        margin: 40px auto;
+    }
+    .project-modal-info {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .project-modal-close {
+        top: 20px;
+        right: 20px !important;
+        position: absolute;
     }
 }

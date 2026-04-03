@@ -47,12 +47,10 @@
 .service-hero-title {
     font-family: "Playfair Display", "Playfair", var(--font-serif);
     font-size: 56px;
-    font-weight: 600;
-    /* SemiBold */
+    font-weight: normal; /* Đưa về mảnh khảnh sang trọng giống Portfolio */
     color: white;
     margin: 0;
     line-height: 1;
-    /* Leading normal */
 }
 
 .service-hero-desc {
@@ -191,5 +189,23 @@
         top: 200px;
         left: 40px;
         padding-right: 40px;
+    }
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+@media screen and (max-width: 768px) {
+    .service-hero-content {
+        top: 150px;
+        left: 20px;
+        right: 20px;
+        padding: 0;
+        width: auto;
+    }
+    .service-hero-title {
+        font-size: 40px;
+    }
+    .service-hero-desc {
+        font-size: 16px;
+        line-height: 24px;
     }
 }

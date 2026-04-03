@@ -278,4 +278,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
         statNumbers.forEach(el => counterObserver.observe(el));
     }
+
+    // ===== BACK TO TOP BUTTON =====
+    const backToTopBtn = document.getElementById('backToTop');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // ===== PROJECT STACK SCROLL MONITOR =====
+    const projectStack = document.querySelector('.projects-cards-vertical-stack');
+    if (projectStack) {
+        projectStack.addEventListener('scroll', () => {
+            if (projectStack.scrollTop > 10) {
+                projectStack.classList.add('is-scrolling');
+            } else {
+                projectStack.classList.remove('is-scrolling');
+            }
+        });
+    }
+
+    // ===== PROJECT MODAL LOGIC =====
+    const projectModal = document.getElementById('projectModal');
+    const closeProjectModal = document.getElementById('closeProjectModal');
+    const projectCardBtns = document.querySelectorAll('.project-card-btn');
+
+    if (projectModal && closeProjectModal) {
+        // Open modal
+        projectCardBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent jump to top
+                
+                // Trích xuất tên Dự án từ Card hiện tại và gán vào Modal Title
+                const card = btn.closest('.project-card');
+                if (card) {
+                    const projectName = card.querySelector('.project-name').textContent;
+                    const modalTitle = projectModal.querySelector('.project-modal-title');
+                    if (modalTitle) {
+                        modalTitle.textContent = projectName;
+                    }
+                }
+
+                projectModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
+        });
+
+        // Close modal via button
+        closeProjectModal.addEventListener('click', () => {
+            projectModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close modal by clicking outside the box
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) {
+                projectModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close modal via Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+                projectModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
 });
