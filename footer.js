@@ -9,10 +9,9 @@ class IMPCFooter extends HTMLElement {
                         <p class="footer-company-name">IMPC DESIGN AND TECHNICAL MANAGEMENT CORPORATION</p>
                     </div>
                     <nav class="footer-nav">
-                        <a href="index.html">Home</a>
-                        <a href="index.html#about">About us</a>
-                        <a href="service.html">Service</a>
-                        <a href="portfolio.html">Portfolio</a>
+                        <a href="index.html" data-i18n="Local Component.menu_item 1">Trang chủ</a>
+                        <a href="service.html" data-i18n="Local Component.menu_item 2">Dịch vụ</a>
+                        <a href="portfolio.html" data-i18n="Local Component.menu_item 3">Hồ sơ năng lực</a>
                     </nav>
                 </div>
                 
@@ -21,7 +20,7 @@ class IMPCFooter extends HTMLElement {
                 <div class="footer-contact">
                     <div class="contact-item">
                         <img src="./assets/d23fa2ba5979eb11cbb0b1c09eb06b54174092b3.svg" class="contact-icon" alt="Location" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' fill=\\'%23fff\\' viewBox=\\'0 0 24 24\\'%3E%3Cpath d=\\'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z\\'/%3E%3C/svg%3E'">
-                        <p class="contact-text">Số 15 đường D2, khu phức hợp Saigon Pearl, phường 22, quận Bình Thạnh, Thành phố Hồ Chí Minh</p>
+                        <a href="https://maps.google.com/?q=Số+15,+đường+D2,+Khu+phức+hợp+Saigon+Pearl,+phường+Thạnh+Mỹ+Tây,+Thành+phố+Hồ+Chí+Minh" target="_blank" rel="noopener noreferrer" class="contact-text" data-i18n="Trang chủ.Location">Số 15, đường D2, Khu phức hợp Saigon Pearl, phường Thạnh Mỹ Tây, Thành phố Hồ Chí Minh, Việt Nam</a>
                     </div>
                     <div class="contact-item">
                         <img src="./assets/b24fa2ba5979eb11cbb0b1c09eb06b54174092b3.svg" class="contact-icon" alt="Phone" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' fill=\\'%23fff\\' viewBox=\\'0 0 24 24\\'%3E%3Cpath d=\\'M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z\\'/%3E%3C/svg%3E'">

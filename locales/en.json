@@ -1,0 +1,103 @@
+{
+  "Trang chủ": {
+    "Section 1": {
+      "slogan": "Comprehensive Solutions for Industrial Properties",
+      "sub title": "Our expertise"
+    },
+    "Section 2": {
+      "content": "Built on a solid technical foundation, IMPC provides a comprehensive service ecosystem from construction to operations. We accompany our clients throughout the entire project lifecycle, ensuring superior quality and long-term asset value."
+    },
+    "Section 3": {
+      "title": "Development History",
+      "content_2016": "Established with a mission to create sustainable value, IMPC aims to become the leading provider of comprehensive solutions for Industrial Real Estate.",
+      "content_2017": "Focus on building a team of experts and management systems, creating a solid foundation for a breakthrough strategy in scale and service quality",
+      "content_2018": "Focus on building a team of experts and management systems, creating a solid foundation for a breakthrough strategy in scale and service quality",
+      "content_2019": "Implementing Legal, Project Management, and Supervision services across key industrial parks: Bau Bang, My Phuoc 3, VSIP Bac Ninh, and Luong Dien, strengthening our presence in North and South Vietnam.",
+      "content_2020": "The launch of Property Management services laid the foundation for a comprehensive service chain and IMPC’s pioneering status, expanding into Ho Chi Minh City’s IPs like Tan Phu Trung.",
+      "content_2021": "Launching Renovation and Repair services at Bau Bang and Binh Duong Complex, a strategic step toward a comprehensive full-lifecycle industrial real estate service model.",
+      "content_2022": "Selected as the Preferred Contractor for BW Industrial’s fire-rated partition installations in Southern Vietnam for two years, cementing IMPC’s reputation and market leadership.",
+      "content_2023": "Achieved ISO certifications (9001, 45001, 14001), establishing IMPC as a trusted partner for leading FDI firms like JD Property, Sembcorp, and Cainiao.",
+      "content_2024": "Obtained Fire Protection and Fighting Services certification, affirming our legal compliance and technical expertise while reinforcing IMPC’s commitment to quality and reliability.",
+      "content_2025": "Serving as the main contractor for major projects like CASA FLORA 4 (VSIP Nghe An) and P5 Infrastructure (QTIP Quang Tri), while achieving ISO certifications for comprehensive construction and supervision."
+    },
+    "Section 5": {
+      "title": "Our culture",
+      "sub_title": "At IMPC, our corporate culture is built on the mission of creating sustainable value and the vision of a comprehensive service ecosystem. Guided by Loyalty, Honesty, Devotion, and Decency, we commit to responsibility and professionalism in every project",
+      "title_su_menh": "Mission Statement ",
+      "content_su_menh": "To deliver sustainable value to industrial real estate investors as a trusted partner, providing appropriate professional capabilities tailored to each stage of the project lifecycle",
+      "title_tam-nhin": "Vision Statement",
+      "content_tam-nhin": "To organize and develop the enterprise under a multi-disciplinary structure, comprising specialized units, each responsible for a distinct field, interconnected and operating in alignment to establish a comprehensive industrial real estate service ecosystem — from Design, Construction Legal Services, Construction Implementation, Supervision Consultancy and Project Management, to Operation and Maintenance",
+      "title_gia_tri_cot_loi": "Core Values",
+      "content_gia_tri_cot_loi": "At IMPC, Loyalty, Honesty, Devotion, and Decency form our development foundation. Each member is committed to responsibility, integrity, striving for excellence, and maintaining a respectful, professional attitude in all business activities"
+    },
+    "Section 4": {
+      "title 1": "High-quality projects",
+      "title 2": "that lead long-term growth",
+      "sub_title": "Together with our Business Partners and Customers, we deliver high-quality projects that lead to long-term growth and higher added-value creation across the country",
+      "content 1": "TOTAL PROJECTS",
+      "content 2": "PARTNERS & CUSTOMERS",
+      "content 3": "TOTAL EMPLOYEES"
+    },
+    "Section 7": {
+      "title": "Human Resources ",
+      "sub_title": "IMPC’s workforce is young, capable, and oriented toward sustainable growth through practical experience.",
+      "content": "Prioritizing people as a core factor, IMPC builds long-term career pathways that balance knowledge with real-world practice. With a philosophy centered on quality and cohesion, we foster a professional and responsible environment, delivering optimal project value and client satisfaction"
+    },
+    "Section 6": {
+      "title_card_1": "Key Services ",
+      "sub_title_card_1": "Estate Management ",
+      "content_1": "Overall operation monitoring and management ",
+      "content_2": "Maintenance and repair of infrastructure and technical systems ",
+      "content_3": "Industrial cleaning and landscaping services ",
+      "content_4": "Pest control, sanitation and periodic waste treatment ",
+      "content_5": "24/7 security services ",
+      "content_6": "Provision of supporting services and industrial service solutions upon Client requirements",
+      "title_card_2": "General Contractor ",
+      "content_7": "Industrial and Infrastructure Construction ",
+      "content_8": "Civil Construction ",
+      "content_9": "Design and Build General Contracting "
+    },
+    "Section 8": {
+      "title": "Corporate Social Responsibility (CSR) ",
+      "sub_title_1": "For the Environment",
+      "content_1": "Significantly reducing the use of paper documents, contributing to the protection of forest resources and the environment. Contributing to improved landscapes and working environments at project sites. ",
+      "sub_title_2": "For Employees",
+      "content_2": "Establishing a safe and stable working environment, Enhancing employee engagement and productivity.",
+      "sub_title_3": "For the Community",
+      "content_3": "Supporting education and the development of young human resources, Strengthening the connection between the company and the community.",
+      "sub_title_4": "For Partners and Stakeholders",
+      "content_4": "Strengthening corporate reputation and building a transparent, sustainable, and trustworthy foundation for cooperation"
+    },
+    "Section 9": {
+      "title_1": "Trusted by",
+      "title_2": "Partners & Customers"
+    },
+    "Location": "No.15, D2 Street, Saigon Pearl Complex, Ward 22, Binh Thanh District, Ho Chi Minh City, Vietnam"
+  },
+  "Local Component": {
+    "menu_item 1": "Home",
+    "menu_item 2": "Service",
+    "menu_item 3": "Portfolio",
+    "button": "Find out more"
+  },
+  "Dịch vụ": {
+    "Section 2": {
+      "title_1": "Estate Management ",
+      "sub_title_1": "IMPC proudly leads the market in professional Estate Management Services. We provide comprehensive solutions covering all critical aspects of infrastructure management. Fro”m technical support and maintenance to advanced software applications, IMPC commits to superior quality, taransparency, and the highest satisfaction, creating sustainable value for our clients' assets",
+      "content_1": "Overall operation monitoring and management ",
+      "title_2": "General Contractor ",
+      "sub_title_2": "IMPC serves as a General Contractor for civil, industrial, and infrastructure projects. We take full responsibility from foundation works and structural construction to finishing and landscaping. With high professional expertise, IMPC is committed to delivering superior quality, ensuring timely progress and optimal aesthetics for every client",
+      "content_2": "Industrial and Infrastructure Construction ",
+      "content_1 2": "Maintenance and repair of infrastructure and technical systems ",
+      "content_1 3": "Industrial cleaning and landscaping services ",
+      "content_1 4": "Pest control, sanitation and periodic waste treatment ",
+      "content_1 5": "24/7 security services ",
+      "content_1 6": "Provision of supporting services and industrial service solutions upon Client requirements",
+      "content_2 2": "Civil Construction ",
+      "content_2 3": "Design and Build General Contracting "
+    },
+    "Section 1": {
+      "main_title": "Service"
+    }
+  }
+}

@@ -10,8 +10,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <script src="./locales/lang-data.js"></script>
+    <script src="./i18n.js"></script>
 </head>
-<body>
+<body class="splash-active">
+
+    <!-- ===== SPLASH SCREEN ===== -->
+    <div id="splash-screen" aria-hidden="true">
+        <div class="splash-bg-top"></div>
+        <div class="splash-bg-bottom"></div>
+        <div class="splash-logo-clip">
+            <img src="./assets/fa1be58f10fbfb652eb1842bacda630811f46632.svg" alt="IMPC Logo" class="splash-logo">
+        </div>
+        <div class="splash-center-line">
+            <div class="splash-line-fill"></div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <header class="hero" id="home">
@@ -24,10 +38,10 @@
 
         <div class="hero-content reveal active">
             <div class="hero-expertise">
-                <span>OUR EXPERTISE</span>
+                <span data-i18n="Trang chủ.Section 1.sub title">CHUYÊN MÔN CỦA CHÚNG TÔI</span>
                 <div class="hero-line"></div>
             </div>
-            <h2 class="hero-title font-serif" id="loop-title-anchor">In The Field of Industrial Real Estate Development and Management</h2>
+            <h2 class="hero-title font-serif" id="loop-title-anchor" data-i18n="Trang chủ.Section 1.slogan">Giải pháp Toàn diện cho Bất động sản Công nghiệp</h2>
         </div>
     </header>
 
@@ -35,11 +49,10 @@
     <section class="quote-section" id="story-section">
         <div class="sticky-container">
             <div class="quote-text">
-                <div class="story-line">“Tự hào là đơn vị dẫn đầu thị trường trong lĩnh vực</div>
-                <div class="story-line"><span class="quote-highlight">Quản lý và Vận hành</span> bất động sản chuyên nghiệp</div>
-                <div class="story-line">cung cấp giải pháp trọn gói từ thiết kế, pháp lý,</div>
-                <div class="story-line">thi công đến vận hành và bảo trì, đảm bảo chất lượng,</div>
-                <div class="story-line">minh bạch và giá trị bền vững cho tài sản khách hàng”</div>
+                <div class="story-line">Dựa trên nền tảng chuyên môn vững chắc, IMPC mang đến</div>
+                <div class="story-line">hệ sinh thái dịch vụ trọn gói từ thi công đến vận hành. Chúng</div>
+                <div class="story-line">tôi đồng hành cùng khách hàng xuyên suốt vòng đời dự án,</div>
+                <div class="story-line">cam kết chất lượng vượt trội và giá trị tài sản bền vững.</div>
             </div>
         </div>
     </section>
@@ -49,7 +62,7 @@
     <section class="history-section" id="history-section">
         <div class="history-layout">
             <div class="history-left">
-                <h2 class="history-title reveal">Lịch sử phát triển</h2>
+                <h2 class="history-title reveal" data-i18n="Trang chủ.Section 3.title">Lịch sử phát triển</h2>
             </div>
             <div class="history-right">
                 <div class="timeline" id="timeline">
@@ -59,70 +72,70 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">2016</div>
-                            <div class="timeline-desc">IMPC được thành lập với khát vọng tạo ra giá trị bền vững cho các công trình, hướng tới trở thành nhà cung cấp giải pháp dịch vụ trọn gói trong lĩnh vực bất động sản công nghiệp.</div>
+                            <div class="timeline-desc" data-i18n="Trang chủ.Section 3.content_2016">IMPC ra đời với sứ mệnh kiến tạo giá trị bền vững, định hướng trở thành đơn vị hàng đầu cung cấp giải pháp dịch vụ trọn gói cho Bất động sản công nghiệp</div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">2017</div>
-                            <div class="timeline-desc">Củng cố nền tảng, chuẩn hóa quy trình vận hành</div>
+                            <div class="timeline-desc" data-i18n="Trang chủ.Section 3.content_2017">Tập trung xây dựng đội ngũ chuyên gia và hệ thống quản lý, tạo tiền đề vững chắc cho chiến lược bứt phá về quy mô và chất lượng dịch vụ</div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">2018</div>
-                            <div class="timeline-desc">Xây dựng đội ngũ chuyên gia và hệ thống quản lý nhằm tạo tiền đề vững chắc cho việc mở rộng quy mô và nâng cao chất lượng dịch vụ</div>
+                            <div class="timeline-desc" data-i18n="Trang chủ.Section 3.content_2018">Tập trung xây dựng đội ngũ chuyên gia và hệ thống quản lý, tạo tiền đề vững chắc cho chiến lược bứt phá về quy mô và chất lượng dịch vụ</div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">2019</div>
-                            <div class="timeline-desc">Triển khai các dịch vụ đầu tiên và Đánh dấu sự hiện diện tại các KCN trọng điểm</div>
+                            <div class="timeline-desc" data-i18n="Trang chủ.Section 3.content_2019">Triển khai dịch vụ Pháp lý, Quản lý dự án, Giám sát xây dựng tại các KCN trọng điểm: Bàu Bàng, Mỹ Phước 3 (Bình Dương), VSIP Bắc Ninh và Lương Điền (Hải Dương), khẳng định vị thế tại hai miền Nam – Bắc.</div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">2020</div>
-                            <div class="timeline-desc">Khởi động Dịch vụ Quản lý Vận hành &amp; Đặt nền móng cho vị thế tiên phong</div>
+                            <div class="timeline-desc" data-i18n="Trang chủ.Section 3.content_2020">Dịch vụ Quản lý vận hành ra đời, tạo tiền đề xây dựng chuỗi giải pháp toàn diện và khẳng định vị thế tiên phong. Phạm vi dịch vụ mở rộng mạnh mẽ sang các KCN tại TP.HCM như Tân Phú Trung.</div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">2021</div>
-                            <div class="timeline-desc">Bổ sung Dịch vụ Cải tạo, Sửa chữa – Tiếp tục hoàn thiện chuỗi dịch vụ</div>
+                            <div class="timeline-desc" data-i18n="Trang chủ.Section 3.content_2021">Triển khai dịch vụ Cải tạo, Sửa chữa tại KCN Bàu Bàng và Khu liên hợp Bình Dương, đánh dấu bước tiến hiện thực hóa giải pháp toàn diện cho trọn vòng đời bất động sản công nghiệp.</div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">2022</div>
-                            <div class="timeline-desc">Khẳng định uy tín và năng lực chuyên môn khi trở thành nhà thầu ưu tiên cung cấp vách ngăn chống cháy cho các dự án của BW tại miền Nam.</div>
+                            <div class="timeline-desc" data-i18n="Trang chủ.Section 3.content_2022">Trở thành Nhà thầu Ưu tiên cung cấp vách ngăn chống cháy cho các dự án của BW Industrial tại miền Nam trong 2 năm, khẳng định vị thế và uy tín vượt trội của IMPC trên thị trường.</div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">2023</div>
-                            <div class="timeline-desc">Chuẩn hóa theo tiêu chuẩn quốc tế, đạt chứng nhận ISO và khẳng định vị thế đối tác chiến lược của các doanh nghiệp FDI như JD Property, Sembcorp và Cainiao.</div>
+                            <div class="timeline-desc" data-i18n="Trang chủ.Section 3.content_2023">Đạt các chứng nhận ISO (9001, 45001, 14001) cho dịch vụ quản lý và vận hành, giúp IMPC trở thành đối tác tin cậy của các tập đoàn FDI hàng đầu như JD Property, Sembcorp và Cainiao.</div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">2024</div>
-                            <div class="timeline-desc">Chứng nhận đủ điều kiện kinh doanh PCCC</div>
+                            <div class="timeline-desc" data-i18n="Trang chủ.Section 3.content_2024">Đạt chứng nhận đủ điều kiện kinh doanh dịch vụ PCCC, khẳng định năng lực chuyên môn và tuân thủ pháp lý nghiêm ngặt, củng cố cam kết về chất lượng và sự tin cậy đối với khách hàng.</div>
                         </div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <div class="timeline-year">2025</div>
-                            <div class="timeline-desc">Mở rộng thi công xây dựng – Hoàn thiện chuỗi dịch vụ toàn diện</div>
+                            <div class="timeline-desc" data-i18n="Trang chủ.Section 3.content_2025">Trở thành nhà thầu chính cho các dự án lớn như CASA FLORA 4 (VSIP Nghệ An), hạ tầng P5 (QTIP Quảng Trị) và đạt chứng chỉ ISO toàn diện về Giám sát, Khảo sát, Thi công hạ tầng và công nghiệp.</div>
                         </div>
                     </div>
                     
@@ -136,23 +149,23 @@
         <div class="stats-grid">
             <div class="stats-text reveal">
                 <div class="stats-heading-group">
-                    <h2 class="stats-title">High Quality Projects</h2>
-                    <h3 class="stats-subtitle font-serif italic">that lead long term growth</h3>
+                    <h2 class="stats-title" data-i18n="Trang chủ.Section 4.title 1">Dự án chất lượng</h2>
+                    <h3 class="stats-subtitle font-serif italic" data-i18n="Trang chủ.Section 4.title 2">tạo ra sự phát triển dài hạn</h3>
                 </div>
-                <p class="stats-desc">Together with our Business Partners and Customers, we deliver high-quality projects that lead to long-term growth and higher added-value creation across the country</p>
+                <p class="stats-desc" data-i18n="Trang chủ.Section 4.sub_title">Cùng với các Đối tác Kinh doanh và Khách hàng của mình, chúng tôi mang đến những dự án chất lượng nhằm tạo ra sự phát triển lâu dài và tạo ra giá trị cao hơn trên khắp đất nước.</p>
             </div>
             <div class="stats-numbers font-sans reveal delay-200">
                 <div class="stat-item">
                     <span class="stat-number" data-target="75" data-suffix="+">0</span>
-                    <span class="stat-label">TOTAL PROJECT</span>
+                    <span class="stat-label" data-i18n="Trang chủ.Section 4.content 1">TỔNG DỰ ÁN</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number" data-target="20" data-suffix="+">0</span>
-                    <span class="stat-label">PARTNERS & CUSTOMERS</span>
+                    <span class="stat-label" data-i18n="Trang chủ.Section 4.content 2">ĐỐI TÁC & KHÁCH HÀNG</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number" data-target="282" data-suffix="+">0</span>
-                    <span class="stat-label">TOTAL EMPLOYEES</span>
+                    <span class="stat-label" data-i18n="Trang chủ.Section 4.content 3">TỔNG NHÂN VIÊN</span>
                 </div>
             </div>
         </div>
@@ -163,8 +176,8 @@
     <section class="culture-section" id="culture">
 
         <div class="culture-header reveal delay-100">
-            <h2 class="culture-title">Văn hoá của chúng tôi</h2>
-            <p class="culture-desc">Sự phát triển cơ bản của Công ty Cổ phần Thiết kế và Quản lý Kỹ thuật IMP luôn bắt nguồn từ sự đầu tư thông minh, phát triển bền vững, học hỏi và sáng tạo vì lợi ích của cộng đồng, khách hàng, đối tác và công ty.</p>
+            <h2 class="culture-title" data-i18n="Trang chủ.Section 5.title">Văn hoá của chúng tôi</h2>
+            <p class="culture-desc" data-i18n="Trang chủ.Section 5.sub_title">Tại IMPC, văn hóa doanh nghiệp được xây dựng trên sứ mệnh kiến tạo giá trị bền vững và tầm nhìn về một hệ sinh thái dịch vụ toàn diện. Chúng tôi lấy Trung thành, Thành thật, Tận tụy và Tử tế làm kim chỉ nam, cam kết trách nhiệm và sự chuyên nghiệp trong mọi dự án.</p>
         </div>
 
         <div class="culture-timeline">
@@ -181,24 +194,24 @@
             <!-- Item 1: Sứ mệnh (Right) -->
             <div class="culture-item right">
                 <div class="culture-item-content">
-                    <h3 class="culture-item-title">Sứ mệnh</h3>
-                    <p class="culture-item-desc">Mang lại giá trị bền vững cho các nhà đầu tư bất động sản công nghiệp với vai trò đối tác đáng tin cậy, cùng năng lực chuyên môn phù hợp theo từng giai đoạn dự án.</p>
+                    <h3 class="culture-item-title" data-i18n="Trang chủ.Section 5.title_su_menh">Sứ mệnh</h3>
+                    <p class="culture-item-desc" data-i18n="Trang chủ.Section 5.content_su_menh">Mang lại giá trị bền vững cho các nhà đầu tư bất động sản công nghiệp với vai trò đối tác đáng tin cậy, cùng năng lực chuyên môn phù hợp theo từng giai đoạn dự án</p>
                 </div>
             </div>
 
             <!-- Item 2: Tầm nhìn (Left) -->
             <div class="culture-item left">
                 <div class="culture-item-content text-right">
-                    <h3 class="culture-item-title">Tầm nhìn</h3>
-                    <p class="culture-item-desc">Hướng đến việc tổ chức và phát triển doanh nghiệp theo mô hình gồm nhiều đơn vị chuyên môn, mỗi đơn vị phụ trách một lĩnh vực riêng, cùng liên kết và vận hành đồng bộ để hình thành một hệ sinh thái dịch vụ bất động sản công nghiệp toàn diện</p>
+                    <h3 class="culture-item-title" data-i18n="Trang chủ.Section 5.title_tam-nhin">Tầm nhìn</h3>
+                    <p class="culture-item-desc" data-i18n="Trang chủ.Section 5.content_tam-nhin">Hướng đến việc tổ chức và phát triển doanh nghiệp theo mô hình gồm nhiều đơn vị chuyên môn, mỗi đơn vị phụ trách một lĩnh vực riêng, cùng liên kết và vận hành đồng bộ để hình thành một hệ sinh thái dịch vụ bất động sản công nghiệp toàn diện, từ Thiết kế, Pháp lý Xây dựng, triển khai Thi công, Tư vấn Giám sát và Quản lý Dự án, cho đến Vận hành và Bảo trì công trình</p>
                 </div>
             </div>
 
             <!-- Item 3: Giá trị cốt lõi (Right) -->
             <div class="culture-item right">
                 <div class="culture-item-content">
-                    <h3 class="culture-item-title">Giá trị cốt lõi</h3>
-                    <p class="culture-item-desc">Chúng tôi trung thành với khách hàng, đối tác và sứ mệnh của tổ chức, luôn hành động trung thực và thẳng thắn trong mọi đề xuất và phản hồi, không ngừng nỗ lực hoàn thiện chất lượng và giá trị mang lại</p>
+                    <h3 class="culture-item-title" data-i18n="Trang chủ.Section 5.title_gia_tri_cot_loi">Giá trị cốt lõi</h3>
+                    <p class="culture-item-desc" data-i18n="Trang chủ.Section 5.content_gia_tri_cot_loi">Tại IMPC, chúng tôi lấy Trung thành, Thành thật, Tận tụy và Tử tế làm nền tảng phát triển. Từng thành viên luôn cam kết trách nhiệm, sự trung thực, nỗ lực đạt chất lượng cao nhất và duy trì thái độ tôn trọng, chuyên nghiệp trong mọi hoạt động kinh doanh</p>
                 </div>
             </div>
         </div>
@@ -210,7 +223,7 @@
             
             <!-- Estate Management -->
             <div class="service-feature-card theme-blue reveal delay-200">
-                <h2 class="services-section-title reveal delay-100">Dịch vụ cung cấp</h2>
+                <h2 class="services-section-title reveal delay-100" data-i18n="Trang chủ.Section 6.title_card_1">Dịch vụ cung cấp</h2>
 
                 <!-- Background gradient image -->
                 <img src="./assets/d2364dda5d1c1d6f447c0fad6617a218ea1e65b7.png" alt="" class="service-card-bg">
@@ -218,20 +231,21 @@
                 <img src="./assets/66dba9615295d2e8e2b4d840aa453051d4f85777.png" alt="" class="service-card-3d">
                 
                 <div class="service-card-overlay">
-                    <h3 class="service-feature-title">Estate Management </h3>
+                    <h3 class="service-feature-title" data-i18n="Trang chủ.Section 6.sub_title_card_1">Quản lý bất động sản</h3>
                     <div class="service-feature-list-wrap">
                         <ul class="service-feature-list">
-                            <li>Bảo trì, sửa chữa hạ tầng và hệ thống kỹ thuật</li>
-                            <li>Dịch vụ vệ sinh công nghiệp và chăm sóc cảnh quan</li>
-                            <li>Kiểm soát côn trùng, diệt khuẩn và xử lý rác thải định kỳ</li>
-                            <li>Dịch vụ an ninh - bảo vệ 24/7</li>
-                            <li>Cung cấp các dịch vụ bổ trợ và các giải pháp dịch vụ công nghiệp</li>
+                            <li data-i18n="Trang chủ.Section 6.content_1">Giám sát và quản lý vận hành tổng thể </li>
+                            <li data-i18n="Trang chủ.Section 6.content_2">Bảo trì, sửa chữa hạ tầng và hệ thống kỹ thuật </li>
+                            <li data-i18n="Trang chủ.Section 6.content_3">Dịch vụ vệ sinh công nghiệp và chăm sóc cảnh quan </li>
+                            <li data-i18n="Trang chủ.Section 6.content_4">Kiểm soát côn trùng, diệt khuẩn và xử lý rác thải định kỳ </li>
+                            <li data-i18n="Trang chủ.Section 6.content_5">Dịch vụ an ninh – bảo vệ 24/7 </li>
+                            <li data-i18n="Trang chủ.Section 6.content_6">Cung cấp các dịch vụ bổ trợ và các giải pháp dịch vụ công nghiệp theo yêu cầu của Khách hàng</li>
                         </ul>
                     </div>
                 </div>
-                <a href="service.html" class="service-feature-btn">
-                    Find out more
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a href="service.html" class="service-feature-btn" data-i18n="Local Component.button">
+                    Xem thêm
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4.16915 0.853335H16.2371V12.9212" stroke="currentColor" stroke-width="1.70667"/>
                         <path d="M4.169 12.9215L15.4827 1.60781" stroke="currentColor" stroke-width="1.70667"/>
                         <path d="M0.603384 16.4388L2.86612 14.1762" stroke="currentColor" stroke-width="1.70667"/>
@@ -247,18 +261,18 @@
                 <img src="./assets/60c828158d537c59ab948d87da445bd856147be7.png" alt="" class="service-card-3d">
                 
                 <div class="service-card-overlay">
-                    <h3 class="service-feature-title">General contractor</h3>
+                    <h3 class="service-feature-title" data-i18n="Trang chủ.Section 6.title_card_2">Tổng thầu xây dựng</h3>
                     <div class="service-feature-list-wrap">
                         <ul class="service-feature-list">
-                            <li>Thi công công trình Công nghiệp và Hạ tầng</li>
-                            <li>Thi công công trình dân dụng</li>
-                            <li>Tổng thầu Thiết kế và Xây dựng</li>
+                            <li data-i18n="Trang chủ.Section 6.content_7">Thi công công trình Công nghiệp và Hạ tầng</li>
+                            <li data-i18n="Trang chủ.Section 6.content_8">Thi công công trình Dân dụng </li>
+                            <li data-i18n="Trang chủ.Section 6.content_9">Tổng thầu Thiết kế và Xây dựng</li>
                         </ul>
                     </div>
                 </div>
-                <a href="service.html" class="service-feature-btn">
-                    Find out more
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a href="service.html" class="service-feature-btn" data-i18n="Local Component.button">
+                    Xem thêm
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4.16915 0.853335H16.2371V12.9212" stroke="currentColor" stroke-width="1.70667"/>
                         <path d="M4.169 12.9215L15.4827 1.60781" stroke="currentColor" stroke-width="1.70667"/>
                         <path d="M0.603384 16.4388L2.86612 14.1762" stroke="currentColor" stroke-width="1.70667"/>
@@ -271,15 +285,15 @@
 
     <!-- People Section (Section 7) -->
     <section class="people-section" id="people">
-        <h2 class="section-title reveal">Nhân tố con người</h2>
+        <h2 class="section-title reveal" data-i18n="Trang chủ.Section 7.title">Nhân tố con người</h2>
         
         <div class="people-content reveal delay-100">
             <img class="people-hero-img" src="./assets/f6dda247ba8783c1df3a3b2f15dc4e434d93ca71.png" alt="IMPC Team">
             
             <div class="people-bottom">
                 <div class="people-text">
-                    <h3 class="people-heading">Nhân sự được xây dựng trên nền tảng trẻ, có năng lực chuyên môn và định hướng phát triển lâu dài thông qua thực tiễn</h3>
-                    <p class="people-desc">IMPC xây dựng đội ngũ nhân sự trẻ với nền tảng chuyên môn phù hợp, được định hướng phát triển theo lộ trình rõ ràng và dài hạn. Chúng tôi chú trọng sự cân bằng giữa kiến thức, kỹ năng và kinh nghiệm thực tiễn trong quá trình phát triển nguồn nhân lực.</p>
+                    <h3 class="people-heading" data-i18n="Trang chủ.Section 7.sub_title">Đội ngũ IMPC trẻ trung, năng động, có năng lực chuyên môn và định hướng phát triển bền vững qua thực tiễn.</h3>
+                    <p class="people-desc" data-i18n="Trang chủ.Section 7.content">IMPC chú trọng phát triển con người là yếu tố cốt lõi, xây dựng lộ trình sự nghiệp dài hạn kết hợp giữa kiến thức và trải nghiệm thực tế. Với triết lý hướng đến chất lượng và tính gắn kết, chúng tôi kiến tạo môi trường làm việc chuyên nghiệp, trách nhiệm, nhằm mang lại giá trị tối ưu cho dự án và sự hài lòng cho đối tác.</p>
                 </div>
                 
                 <div class="people-images">
@@ -298,8 +312,16 @@
     <!-- CSR Section (Section 8) -->
     <section class="csr-section" id="csr-section">
         <div class="csr-header reveal">
-            <h2 class="csr-title">Corporate Social Responsibility</h2>
-            <h3 class="csr-subtitle font-serif italic">Initiatives</h3>
+            <div class="section-divider">
+                <div class="section-divider-line"></div>
+                <div class="section-divider-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40 20.04C34.8105 20.3585 29.9165 22.5636 26.2401 26.2401C22.5636 29.9165 20.3585 34.8105 20.04 40L19.96 40C19.6421 34.8103 17.4371 29.916 13.7605 26.2395C10.084 22.5629 5.18971 20.3579 1.11022e-15 20.04L0 19.96C5.18971 19.6421 10.084 17.4371 13.7605 13.7605C17.4371 10.084 19.6421 5.18971 19.96 0L20.04 1.11022e-15C20.3585 5.18952 22.5636 10.0835 26.2401 13.7599C29.9165 17.4364 34.8105 19.6415 40 19.96L40 20.04Z" fill="#CBD8DC"/>
+                    </svg>
+                </div>
+                <div class="section-divider-line"></div>
+            </div>
+            <h2 class="csr-title" data-i18n="Trang chủ.Section 8.title">Trách nhiệm xã hội doanh nghiệp</h2>
         </div>
         <div class="csr-container reveal delay-100">
             <!-- Left Image Wrapper -->
@@ -313,20 +335,20 @@
             <!-- Right Cards Container -->
             <div class="csr-cards">
                 <div class="csr-card">
-                    <h4 class="csr-card-title font-serif italic">Đối với môi trường</h4>
-                    <p class="csr-card-desc">Giảm thiểu đáng kể việc sử dụng hồ sơ, tài liệu giấy, góp phần bảo vệ tài nguyên cây xanh và môi trường, góp phần cải thiện cảnh quan và môi trường làm việc tại các dự án.</p>
+                    <h4 class="csr-card-title font-serif italic" data-i18n="Trang chủ.Section 8.sub_title_1">Đối với môi trường</h4>
+                    <p class="csr-card-desc" data-i18n="Trang chủ.Section 8.content_1">Giảm thiểu đáng kể việc sử dụng hồ sơ, tài liệu giấy, góp phần bảo vệ tài nguyên cây xanh và môi trường. Góp phần cải thiện cảnh quan và môi trường làm việc tại các dự án.</p>
                 </div>
                 <div class="csr-card">
-                    <h4 class="csr-card-title font-serif italic">Đối với người lao động</h4>
-                    <p class="csr-card-desc">Hình thành môi trường làm việc an toàn, ổn định. Nâng cao mức độ gắn bó và hiệu suất làm việc của đội ngũ nhân sự.</p>
+                    <h4 class="csr-card-title font-serif italic" data-i18n="Trang chủ.Section 8.sub_title_2">Đối với người lao động</h4>
+                    <p class="csr-card-desc" data-i18n="Trang chủ.Section 8.content_2">Hình thành môi trường làm việc an toàn, ổn định. Nâng cao mức độ gắn bó và hiệu suất làm việc của đội ngũ nhân sự.</p>
                 </div>
                 <div class="csr-card">
-                    <h4 class="csr-card-title font-serif italic">Đối với cộng đồng</h4>
-                    <p class="csr-card-desc">Góp phần hỗ trợ giáo dục và đào tạo nguồn nhân lực trẻ. Tăng cường sự gắn kết giữa doanh nghiệp và cộng đồng.</p>
+                    <h4 class="csr-card-title font-serif italic" data-i18n="Trang chủ.Section 8.sub_title_3">Đối với cộng đồng</h4>
+                    <p class="csr-card-desc" data-i18n="Trang chủ.Section 8.content_3">Góp phần hỗ trợ giáo dục và đào tạo nguồn nhân lực trẻ. Tăng cường sự gắn kết giữa doanh nghiệp và cộng đồng.</p>
                 </div>
                 <div class="csr-card">
-                    <h4 class="csr-card-title font-serif italic">Đối tác và các bên liên quan</h4>
-                    <p class="csr-card-desc">Củng cố uy tín doanh nghiệp, xây dựng nền tảng hợp tác minh bạch, bền vững và đáng tin cậy.</p>
+                    <h4 class="csr-card-title font-serif italic" data-i18n="Trang chủ.Section 8.sub_title_4">Đối tác và các bên liên quan</h4>
+                    <p class="csr-card-desc" data-i18n="Trang chủ.Section 8.content_4">Củng cố uy tín doanh nghiệp, xây dựng nền tảng hợp tác minh bạch, bền vững và đáng tin cậy.</p>
                 </div>
             </div>
         </div>
@@ -335,8 +357,8 @@
     <!-- Partners Section (Section 9) -->
     <section class="partners-section" id="partners-section">
         <div class="partners-header reveal">
-            <h2 class="partners-title">Trusted by</h2>
-            <h3 class="partners-subtitle font-serif italic">Customers, Partner and the Industry</h3>
+            <h2 class="partners-title" data-i18n="Trang chủ.Section 9.title_1">Được tin tưởng bởi</h2>
+            <h3 class="partners-subtitle font-serif italic" data-i18n="Trang chủ.Section 9.title_2">Đối tác & Khách hàng</h3>
         </div>
         <div class="partners-grid-wrapper reveal delay-100">
             <div class="border-grid">

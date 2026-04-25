@@ -1,4 +1,4 @@
-/* ===== SERVICE PAGE SPECIFIC STYLES ===== */
+/* ===== SERVICE PAGE SPECItC STYLES ===== */
 .service-hero {
     position: relative;
     width: 100%;
@@ -47,7 +47,8 @@
 .service-hero-title {
     font-family: "Playfair Display", "Playfair", var(--font-serif);
     font-size: 56px;
-    font-weight: normal; /* Đưa về mảnh khảnh sang trọng giống Portfolio */
+    font-weight: normal;
+    /* Đưa về mảnh khảnh sang trọng giống Portfolio */
     color: white;
     margin: 0;
     line-height: 1;
@@ -96,14 +97,14 @@
 }
 
 .service-detail-title {
-    font-family: "Playfair", "Playfair Display", var(--font-serif);
-    font-size: 32px;
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-size: 40px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 450;
     line-height: normal;
     color: var(--text-primary, #212936);
     margin: 0;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .service-detail-desc {
@@ -201,9 +202,11 @@
         padding: 0;
         width: auto;
     }
+
     .service-hero-title {
         font-size: 40px;
     }
+
     .service-hero-desc {
         font-size: 16px;
         line-height: 24px;

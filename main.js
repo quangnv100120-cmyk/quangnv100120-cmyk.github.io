@@ -1,3 +1,40 @@
+// =============================================
+// SPLASH SCREEN — impc.vn style (Final)
+// =============================================
+(function initSplash() {
+    const splash = document.getElementById('splash-screen');
+    if (!splash) return;
+
+    // Khoá scroll trong lúc splash đang hiển thị
+    document.body.style.overflow = 'hidden';
+
+    const HOLD_MS     = 1400;  // Giữ sau khi logo rise xong
+    const LINE_MS     = 500;   // Thời gian line thu về giữa
+    const SPLIT_MS    = 550;   // Thời gian split reveal (bg panels bay ra)
+
+    setTimeout(() => {
+        // Bước 1: Logo sink + Line shrink (đồng thời)
+        splash.classList.add('splash-exit');
+
+        // Bước 2: Sau khi line thu xong → Split Reveal bắt đầu
+        setTimeout(() => {
+            splash.classList.add('splash-split');
+
+            // Bước 3: Sau khi bg panels bay hết → dọn dẹp DOM + reveal content
+            setTimeout(() => {
+                splash.classList.add('splash-done');
+                document.body.style.overflow = '';
+
+                // Trigger page content fade-in
+                document.body.classList.remove('splash-active');
+                document.body.classList.add('page-reveal');
+            }, SPLIT_MS);
+
+        }, LINE_MS);
+
+    }, HOLD_MS);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
     // Reveal Animations
     const revealElements = document.querySelectorAll('.reveal');
@@ -23,46 +60,68 @@ document.addEventListener('DOMContentLoaded', () => {
     // Activate reveal elements based on scroll
     const reveals = document.querySelectorAll('.reveal');
 
-    // Single Node Text Looper (3s Interval)
-    const titleAnchor = document.getElementById('loop-title-anchor');
-    if (titleAnchor) {
-        const loopStrings = [
-            "In The Field of Industrial Real Estate Development and Management",
-            "We Provide Solutions and Services"
-        ];
-        let loopIdx = 0;
 
-        setInterval(() => {
-            // Initiate fade out
-            titleAnchor.classList.add('fade-out');
-
-            // Wait for transition to complete before swapping text
-            setTimeout(() => {
-                loopIdx = (loopIdx + 1) % loopStrings.length;
-                titleAnchor.textContent = loopStrings[loopIdx];
-
-                // Jump to physical bottom state instantly
-                titleAnchor.classList.remove('fade-out');
-                titleAnchor.classList.add('fade-prep');
-
-                // Force layout reflow
-                void titleAnchor.offsetWidth;
-
-                // Trigger smooth fade in translation
-                titleAnchor.classList.remove('fade-prep');
-            }, 800); // 800ms aligns with CSS ease duration
-        }, 3800); /* 3000ms hold + 800ms transition */
-    }
     // Legacy Single-Page Scroll Spy and Smooth Scrolling disabled to allow multi-page routing.
 
     // Scroll Storytelling logic
     const storySection = document.getElementById('story-section');
-    const storyLines = document.querySelectorAll('.story-line');
-
+    const quoteTextContainer = document.querySelector('.quote-text');
+    let storyLines = document.querySelectorAll('.story-line');
     let isStoryTicking = false;
-    if (storySection && storyLines.length > 0) {
+
+    function buildStoryLines() {
+        if (!quoteTextContainer) return;
+        
+        let fullText = "";
+        if (typeof getTranslationValue === 'function') {
+            fullText = getTranslationValue('Trang chủ.Section 2.content');
+        }
+        
+        if (!fullText) {
+            fullText = "Dựa trên nền tảng chuyên môn vững chắc, IMPC mang đến <br> hệ sinh thái dịch vụ trọn gói từ thi công đến vận hành. Chúng <br> tôi đồng hành cùng khách hàng xuyên suốt vòng đời dự án, <br> cam kết chất lượng vượt trội và giá trị tài sản bền vững.";
+        }
+
+        quoteTextContainer.innerHTML = ''; // clear
+
+        // Generate span for every word
+        const words = fullText.split(' ');
+        words.forEach(word => {
+            if (word.trim() === '') return;
+            const span = document.createElement('span');
+            span.className = 'story-word story-line'; // keep story-line class for CSS transitional attributes
+            span.textContent = word;
+            quoteTextContainer.appendChild(span);
+            quoteTextContainer.appendChild(document.createTextNode(' '));
+        });
+
+        // Calculate offsetTop line barriers
+        const spans = Array.from(quoteTextContainer.querySelectorAll('.story-word'));
+        storyLines = [];
+        let currentLine = [];
+        let currentOffset = -1;
+
+        spans.forEach(span => {
+            if (currentOffset === -1 || Math.abs(span.offsetTop - currentOffset) > 10) {
+                if (currentLine.length > 0) storyLines.push(currentLine);
+                currentLine = [span];
+                currentOffset = span.offsetTop;
+            } else {
+                currentLine.push(span);
+            }
+        });
+        if (currentLine.length > 0) storyLines.push(currentLine);
+    }
+
+    // Build initially
+    buildStoryLines();
+
+    // Rebuild on language change
+    window.addEventListener('language-changed', buildStoryLines);
+    window.addEventListener('i18n-ready', buildStoryLines);
+
+    if (storySection) {
         window.addEventListener('scroll', () => {
-            if (!isStoryTicking) {
+            if (!isStoryTicking && storyLines.length > 0) {
                 window.requestAnimationFrame(() => {
                     const rect = storySection.getBoundingClientRect();
                     const scrollDistance = -rect.top;
@@ -75,21 +134,21 @@ document.addEventListener('DOMContentLoaded', () => {
                         const lineIndex = Math.floor(progress * storyLines.length);
                         const safeIndex = Math.min(storyLines.length - 1, lineIndex);
 
-                        storyLines.forEach((line, idx) => {
+                        storyLines.forEach((lineArr, idx) => {
                             if (idx === safeIndex) {
-                                line.classList.add('active');
+                                lineArr.forEach(span => span.classList.add('active'));
                             } else {
-                                line.classList.remove('active');
+                                lineArr.forEach(span => span.classList.remove('active'));
                             }
                         });
                     } else if (rect.top > 0) {
-                        storyLines.forEach(line => line.classList.remove('active'));
+                        storyLines.forEach(lineArr => lineArr.forEach(span => span.classList.remove('active')));
                     } else if (rect.bottom < window.innerHeight) {
-                        storyLines.forEach((line, idx) => {
+                        storyLines.forEach((lineArr, idx) => {
                             if (idx === storyLines.length - 1) {
-                                line.classList.add('active');
+                                lineArr.forEach(span => span.classList.add('active'));
                             } else {
-                                line.classList.remove('active');
+                                lineArr.forEach(span => span.classList.remove('active'));
                             }
                         });
                     }
