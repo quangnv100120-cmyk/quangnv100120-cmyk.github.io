@@ -1,9 +1,29 @@
 // =============================================
 // SPLASH SCREEN — impc.vn style (Final)
+// Chỉ hiển thị khi: lần đầu vào web HOẶC reload trang
+// KHÔNG hiển thị khi: navigate từ trang khác về Trang chủ
 // =============================================
 (function initSplash() {
     const splash = document.getElementById('splash-screen');
     if (!splash) return;
+
+    // Detect xem đây có phải là reload không
+    const navEntry = performance.getEntriesByType('navigation')[0];
+    const isReload = navEntry ? navEntry.type === 'reload' : performance.navigation.type === 1;
+
+    // Detect xem splash đã được hiển thị trong session này chưa
+    const alreadyShown = sessionStorage.getItem('splashShown');
+
+    // Nếu KHÔNG phải reload VÀ đã từng hiện splash → skip (navigate nội bộ)
+    if (!isReload && alreadyShown) {
+        splash.classList.add('splash-done');
+        document.body.classList.remove('splash-active');
+        // Không cần animation, hiện content ngay
+        return;
+    }
+
+    // Đánh dấu splash đã hiện trong session này
+    sessionStorage.setItem('splashShown', '1');
 
     // Khoá scroll trong lúc splash đang hiển thị
     document.body.style.overflow = 'hidden';
