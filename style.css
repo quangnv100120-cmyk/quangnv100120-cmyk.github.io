@@ -654,7 +654,6 @@ a {
 .quote-section {
     position: relative;
     height: 250vh;
-    /* gives room for the scroll storytelling */
     width: 100%;
     background-color: var(--bg-white);
 }
@@ -683,9 +682,8 @@ a {
 
 .story-line {
     color: var(--text-tertiary, #98A2B2);
-    transition: color 0.5s ease-out;
+    transition: color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     margin-bottom: 0px;
-    /* Assuming line-height 68px controls the spacing perfectly */
 }
 
 .story-line.active {
@@ -932,40 +930,35 @@ a {
 
 /* ===== CULTURE SECTION (Section 5) ===== */
 .culture-section {
-    padding: 150px 0;
+    padding: 120px 0 140px;
     position: relative;
-    width: 100%;
+    background: transparent;
 }
 
 .culture-bg-line {
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 0; bottom: 0;
     width: 1px;
     background-color: rgba(207, 216, 231, 0.5);
-    /* subtle grid line */
     z-index: 1;
 }
 
-.culture-bg-line.left {
-    left: 20%;
-}
+.culture-bg-line.left  { left: 20%;  }
+.culture-bg-line.right { right: 20%; }
 
-.culture-bg-line.right {
-    right: 20%;
+.culture-inner {
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
 }
 
 .culture-header {
-    margin-bottom: 200px;
-    max-width: 695px;
-    position: relative;
-    z-index: 2;
-    text-align: left;
-    padding-left: 40px;
+    margin-bottom: 72px;
+    max-width: 760px;
 }
 
 .culture-title {
-    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", var(--font-sans);
     font-size: 48px;
     font-weight: 450;
     line-height: 56px;
@@ -974,163 +967,139 @@ a {
 }
 
 .culture-desc {
-    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
-    font-size: 24px;
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", var(--font-sans);
+    font-size: 20px;
     line-height: 32px;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     font-weight: 450;
 }
 
-.culture-timeline {
-    position: relative;
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 80vh;
-    /* Smooth Yo-Yo Parallax Gap */
-    padding-top: 10vh;
-    padding-bottom: 20vh;
-    z-index: 2;
+/* --- Editorial row list --- */
+.culture-rows {
+    border-top: 1px solid #e2e8f0;
 }
 
-.culture-star-track {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    pointer-events: none;
-}
-
-.culture-sticky-star {
-    position: absolute;
-    top: 0;
-    left: calc(50% + 2px);
-    /* Shifted 2px right */
-    transform: translate(-50%, -50%);
-    width: 191px;
-    height: 199px;
-    filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.25));
-    will-change: transform;
-}
-
-.culture-sticky-star img {
-    width: 140%;
-    height: 140%;
-    object-fit: contain;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-
-.culture-center-line {
-    position: absolute;
-    left: 50%;
-    top: -150px;
-    bottom: -150px;
-    width: 1px;
-    background-color: #cfd8e7;
-    transform: translateX(-50%);
-    z-index: -1;
-}
-
-.hero-title {
-    font-size: 56px;
-    font-weight: 600;
-    /* Semantic SemiBold requested from Figma */
-    line-height: 68px;
-    color: white;
-    /* Contrast layer verified on hero card */
-    max-width: 961px;
-    margin: 0 auto;
-    text-align: center;
-
-    /* Anti-layout shift box logic for literal text swap */
-    min-height: 136px;
-    /* Exactly reserves the metric for 2 lines under a 68px leading */
-    display: flex;
-    align-items: flex-start;
-    /* Pulled text to ceiling origin as requested */
-    justify-content: center;
-
-    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
-        transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
-        filter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.hero-title.fade-out {
-    opacity: 0;
-    transform: translateY(-15px);
-    filter: blur(8px);
-}
-
-.hero-title.fade-prep {
-    opacity: 0;
-    transform: translateY(15px);
-    filter: blur(8px);
-    transition: none;
-    /* Move boundary instantly without animation */
-}
-
-.culture-item {
-    display: flex;
+.culture-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
+    gap: 60px;
+    padding: 52px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    cursor: default;
     position: relative;
-    width: 100%;
-    opacity: 0.15;
-    filter: blur(8px);
-    /* Cinematic out-of-focus unrevealed state */
-    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
-        filter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    margin: 0 -20px;
+    overflow: hidden;
 }
 
-.culture-item.active {
-    opacity: 1;
-    filter: blur(0px);
-    /* Dialing into sharp focus */
+/* Slide fill pseudo-element */
+.culture-row::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-brand);
+    transform: scaleY(0);
+    transform-origin: top center;
+    border-radius: 12px;
+    /* NO transition here → exit is instant */
 }
 
-
-
-
-.culture-item-content {
-    width: 50%;
+/* Direction-aware: mouse from bottom → slide up */
+.culture-row[data-dir="up"]::before {
+    transform-origin: bottom center;
 }
 
-.culture-item.right .culture-item-content {
-    margin-left: 50%;
-    padding-left: 140px;
-    /* Increased by 40px from edge of star */
+/* Direction-aware: mouse from top → slide down (default) */
+.culture-row[data-dir="down"]::before {
+    transform-origin: top center;
 }
 
-.culture-item.left .culture-item-content {
-    margin-right: 50%;
-    padding-right: 140px;
-    /* Increased by 40px from edge of star */
-    text-align: right;
+/* Transition only on enter → smooth in, instant out */
+.culture-row:hover::before {
+    transform: scaleY(1);
+    transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.culture-item-title {
-    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
-    font-size: 40px;
-    line-height: 56px;
-    color: var(--color-warning);
-    /* #ea8823 */
-    margin-bottom: 16px;
-    font-weight: 450;
+.culture-row-left {
+    display: flex;
+    align-items: baseline;
+    gap: 28px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.culture-item-desc {
-    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", "BHN_Neue_Haas_Grotes:55_Roman", var(--font-sans);
-    font-size: 24px;
-    line-height: 32px;
+.culture-row:hover .culture-row-left {
+    transform: translateX(6px);
+}
+
+.culture-row-number {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", var(--font-sans);
+    font-size: 16px;
+    font-weight: 500;
+    color: #b0bac8;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+    transition: color 0.4s ease;
+}
+
+.culture-row:hover .culture-row-number {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.culture-row-title {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", var(--font-sans);
+    font-size: 36px;
+    line-height: 44px;
     color: var(--text-primary);
-    font-weight: 450;
+    font-weight: 500;
+    margin: 0;
+    transition: color 0.4s ease;
 }
+
+.culture-row:hover .culture-row-title {
+    color: #ffffff;
+}
+
+.culture-row-desc {
+    font-family: "BHN Neue Haas Grotes", "BHN Neue Haas Grotesk", var(--font-sans);
+    font-size: 24px;
+    line-height: 38px;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin: 0;
+    padding-top: 2px;
+    position: relative;
+    z-index: 1;
+    transition: color 0.4s ease, transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.culture-row:hover .culture-row-desc {
+    color: rgba(255, 255, 255, 0.82);
+    transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .culture-row {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 16px;
+        padding: 36px 16px;
+        margin: 0 -16px;
+    }
+    .culture-row-title {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+
+@media (max-width: 640px) {
+    .culture-inner {
+        padding: 0 20px;
+    }
+}
+
 
 /* ===== SERVICES SECTION (Section 6) ===== */
 .services-section {

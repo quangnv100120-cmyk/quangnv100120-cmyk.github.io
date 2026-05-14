@@ -140,43 +140,25 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('i18n-ready', buildStoryLines);
 
     if (storySection) {
-        window.addEventListener('scroll', () => {
-            if (!isStoryTicking && storyLines.length > 0) {
-                window.requestAnimationFrame(() => {
-                    const rect = storySection.getBoundingClientRect();
-                    const scrollDistance = -rect.top;
-                    const scrollMax = storySection.offsetHeight - window.innerHeight;
-
-                    if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-                        let progress = scrollDistance / scrollMax;
-                        progress = Math.max(0, Math.min(1, progress));
-
-                        const lineIndex = Math.floor(progress * storyLines.length);
-                        const safeIndex = Math.min(storyLines.length - 1, lineIndex);
-
+        const storyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Auto-play: light up each line group one by one
+                    if (storyLines.length > 0) {
                         storyLines.forEach((lineArr, idx) => {
-                            if (idx === safeIndex) {
+                            setTimeout(() => {
                                 lineArr.forEach(span => span.classList.add('active'));
-                            } else {
-                                lineArr.forEach(span => span.classList.remove('active'));
-                            }
-                        });
-                    } else if (rect.top > 0) {
-                        storyLines.forEach(lineArr => lineArr.forEach(span => span.classList.remove('active')));
-                    } else if (rect.bottom < window.innerHeight) {
-                        storyLines.forEach((lineArr, idx) => {
-                            if (idx === storyLines.length - 1) {
-                                lineArr.forEach(span => span.classList.add('active'));
-                            } else {
-                                lineArr.forEach(span => span.classList.remove('active'));
-                            }
+                            }, idx * 350); // 350ms stagger between each line
                         });
                     }
-                    isStoryTicking = false;
-                });
-                isStoryTicking = true;
-            }
+                    storyObserver.unobserve(entry.target); // only play once
+                }
+            });
+        }, {
+            threshold: 0.3 // trigger when 30% of section is visible
         });
+
+        storyObserver.observe(storySection);
     }
 
     // Timeline Scroll Logic
@@ -253,70 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Culture Absolute Yo-Yo Scroll Animation
-    const cultureSection = document.getElementById('culture');
-    const cultureItems = document.querySelectorAll('.culture-item');
-    const cultureStar = document.querySelector('.culture-sticky-star');
-    const cultureContainer = document.querySelector('.culture-timeline');
-    let isCultureTicking = false;
-
-    if (cultureSection && cultureItems.length > 0 && cultureStar && cultureContainer) {
-        window.addEventListener('scroll', () => {
-            if (!isCultureTicking) {
-                window.requestAnimationFrame(() => {
-                    const containerTop = cultureContainer.getBoundingClientRect().top;
-                    const TOP_LIMIT = 150;
-                    const MIDDLE_LIMIT = window.innerHeight * 0.5;
-
-                    const itemYs = Array.from(cultureItems).map(item => item.offsetTop + item.offsetHeight / 2);
-                    const vYs = itemYs.map(y => containerTop + y);
-
-                    let targetVy = vYs[0]; // default attached to Item 0
-
-                    if (vYs[0] >= TOP_LIMIT) {
-                        targetVy = vYs[0];
-                    }
-                    else if (vYs[0] < TOP_LIMIT && vYs[1] > MIDDLE_LIMIT) {
-                        const totalScroll = (itemYs[1] - MIDDLE_LIMIT) - (itemYs[0] - TOP_LIMIT);
-                        const passed = TOP_LIMIT - vYs[0];
-                        let p = passed / totalScroll;
-                        p = Math.max(0, Math.min(1, p));
-                        targetVy = TOP_LIMIT + p * (MIDDLE_LIMIT - TOP_LIMIT);
-                    }
-                    else if (vYs[1] <= MIDDLE_LIMIT && vYs[1] >= TOP_LIMIT) {
-                        targetVy = vYs[1];
-                    }
-                    else if (vYs[1] < TOP_LIMIT && vYs[2] > MIDDLE_LIMIT) {
-                        const totalScroll = (itemYs[2] - MIDDLE_LIMIT) - (itemYs[1] - TOP_LIMIT);
-                        const passed = TOP_LIMIT - vYs[1];
-                        let p = passed / totalScroll;
-                        p = Math.max(0, Math.min(1, p));
-                        targetVy = TOP_LIMIT + p * (MIDDLE_LIMIT - TOP_LIMIT);
-                    }
-                    else if (vYs[2] <= MIDDLE_LIMIT) {
-                        targetVy = vYs[2]; // Locks to the final item and scrolls completely out of view
-                    }
-
-                    // Apply star position natively using translate3d for hardware acceleration
-                    const absoluteY = targetVy - containerTop;
-                    cultureStar.style.transform = `translate(-50%, -50%) translate3d(0, ${absoluteY}px, 0)`;
-
-                    // Dynamic fade for text blocks based on strict distance to the Star!
-                    cultureItems.forEach((item, idx) => {
-                        const distance = Math.abs(vYs[idx] - targetVy);
-                        if (distance < window.innerHeight * 0.3) {
-                            item.classList.add('active');
-                        } else {
-                            item.classList.remove('active');
-                        }
-                    });
-
-                    isCultureTicking = false;
-                });
-                isCultureTicking = true;
-            }
-        });
-    }
+    // Culture Absolute Yo-Yo Scroll Animation has been removed since the layout changed to 3 floating cards
 
     // ===== STAT COUNTER ANIMATION =====
     const statNumbers = document.querySelectorAll('.stat-number[data-target]');
@@ -434,4 +353,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ===== CULTURE ROW: direction-aware slide =====
+    document.querySelectorAll('.culture-row').forEach(row => {
+        row.addEventListener('mouseenter', (e) => {
+            const rect = row.getBoundingClientRect();
+            const midY = rect.top + rect.height / 2;
+            // Mouse came from above or below?
+            row.setAttribute('data-dir', e.clientY < midY ? 'down' : 'up');
+        });
+
+        row.addEventListener('mouseleave', (e) => {
+            const rect = row.getBoundingClientRect();
+            const midY = rect.top + rect.height / 2;
+            row.setAttribute('data-dir', e.clientY < midY ? 'up' : 'down');
+        });
+    });
 });
