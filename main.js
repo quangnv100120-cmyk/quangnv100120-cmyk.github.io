@@ -83,44 +83,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Legacy Single-Page Scroll Spy and Smooth Scrolling disabled to allow multi-page routing.
 
-    // Scroll Storytelling logic
+    // ===== SCROLL STORYTELLING — Interactive Scroll-Scrubbing =====
     const storySection = document.getElementById('story-section');
     const quoteTextContainer = document.querySelector('.quote-text');
-    let storyLines = document.querySelectorAll('.story-line');
+    let storyLines = [];
+    let allStoryWords = [];
     let isStoryTicking = false;
 
     function buildStoryLines() {
         if (!quoteTextContainer) return;
-        
+
         let fullText = "";
         if (typeof getTranslationValue === 'function') {
             fullText = getTranslationValue('Trang chủ.Section 2.content');
         }
-        
+
         if (!fullText) {
-            fullText = "Dựa trên nền tảng chuyên môn vững chắc, IMPC mang đến <br> hệ sinh thái dịch vụ trọn gói từ thi công đến vận hành. Chúng <br> tôi đồng hành cùng khách hàng xuyên suốt vòng đời dự án, <br> cam kết chất lượng vượt trội và giá trị tài sản bền vững.";
+            fullText = "Dựa trên nền tảng chuyên môn vững chắc, IMPC mang đến hệ sinh thái dịch vụ trọn gói từ thi công đến vận hành. Chúng tôi đồng hành cùng khách hàng xuyên suốt vòng đời dự án, cam kết chất lượng vượt trội và giá trị tài sản bền vững.";
         }
+
+        // Strip HTML line-break tags before splitting
+        fullText = fullText.replace(/<br\s*\/?>/gi, ' ');
 
         quoteTextContainer.innerHTML = ''; // clear
 
-        // Generate span for every word
-        const words = fullText.split(' ');
+        // Generate a <span> for every word
+        const words = fullText.split(/\s+/).filter(w => w.length > 0);
         words.forEach(word => {
-            if (word.trim() === '') return;
             const span = document.createElement('span');
-            span.className = 'story-word story-line'; // keep story-line class for CSS transitional attributes
+            span.className = 'story-word story-line';
             span.textContent = word;
             quoteTextContainer.appendChild(span);
             quoteTextContainer.appendChild(document.createTextNode(' '));
         });
 
-        // Calculate offsetTop line barriers
-        const spans = Array.from(quoteTextContainer.querySelectorAll('.story-word'));
+        // Collect all word spans for scroll-scrubbing
+        allStoryWords = Array.from(quoteTextContainer.querySelectorAll('.story-word'));
+
+        // Also group by line (for optional future use)
         storyLines = [];
         let currentLine = [];
         let currentOffset = -1;
-
-        spans.forEach(span => {
+        allStoryWords.forEach(span => {
             if (currentOffset === -1 || Math.abs(span.offsetTop - currentOffset) > 10) {
                 if (currentLine.length > 0) storyLines.push(currentLine);
                 currentLine = [span];
@@ -132,33 +136,58 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentLine.length > 0) storyLines.push(currentLine);
     }
 
+    function updateStoryScrub() {
+        if (!storySection || allStoryWords.length === 0) return;
+
+        const rect = storySection.getBoundingClientRect();
+        const sectionH = storySection.offsetHeight; // e.g. 250vh
+        const viewH = window.innerHeight;
+
+        // The "scrollable distance" for this section is (sectionH - viewH).
+        // Progress = how far we've scrolled past the section's top edge.
+        // rect.top = 0  → section top just hit viewport top  (start)
+        // rect.top = -(sectionH - viewH) → section bottom just hit viewport bottom (end)
+        const scrollable = sectionH - viewH;
+
+        // When rect.top <= 0 we're inside the sticky zone.
+        // rawProgress: 0 at entry, 1 at exit.
+        const rawProgress = scrollable > 0 ? -rect.top / scrollable : 0;
+        const progress = Math.min(1, Math.max(0, rawProgress));
+
+        // Light up words proportionally to scroll progress
+        const total = allStoryWords.length;
+        const activeCount = Math.round(progress * total);
+
+        allStoryWords.forEach((span, i) => {
+            if (i < activeCount) {
+                span.classList.add('active');
+            } else {
+                span.classList.remove('active');
+            }
+        });
+    }
+
     // Build initially
     buildStoryLines();
 
-    // Rebuild on language change
-    window.addEventListener('language-changed', buildStoryLines);
-    window.addEventListener('i18n-ready', buildStoryLines);
+    // Rebuild on language change, then re-scrub
+    window.addEventListener('language-changed', () => { buildStoryLines(); updateStoryScrub(); });
+    window.addEventListener('i18n-ready',       () => { buildStoryLines(); updateStoryScrub(); });
 
+    // Hook into scroll
     if (storySection) {
-        const storyObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Auto-play: light up each line group one by one
-                    if (storyLines.length > 0) {
-                        storyLines.forEach((lineArr, idx) => {
-                            setTimeout(() => {
-                                lineArr.forEach(span => span.classList.add('active'));
-                            }, idx * 350); // 350ms stagger between each line
-                        });
-                    }
-                    storyObserver.unobserve(entry.target); // only play once
-                }
-            });
-        }, {
-            threshold: 0.3 // trigger when 30% of section is visible
-        });
+        window.addEventListener('scroll', () => {
+            if (!isStoryTicking) {
+                window.requestAnimationFrame(() => {
+                    updateStoryScrub();
+                    isStoryTicking = false;
+                });
+                isStoryTicking = true;
+            }
+        }, { passive: true });
 
-        storyObserver.observe(storySection);
+        // Run once on load in case page loads mid-scroll
+        updateStoryScrub();
     }
 
     // Timeline Scroll Logic
