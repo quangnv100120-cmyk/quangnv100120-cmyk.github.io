@@ -398,4 +398,60 @@ document.addEventListener('DOMContentLoaded', () => {
             row.setAttribute('data-dir', e.clientY < midY ? 'up' : 'down');
         });
     });
+
+    // ===== CULTURE ROW: Mobile Sliding Background =====
+    const cultureRowsContainer = document.querySelector('.culture-rows');
+    const cultureRowItems = document.querySelectorAll('.culture-row');
+    const mobileBg = document.querySelector('.culture-mobile-bg');
+
+    if (cultureRowsContainer && cultureRowItems.length > 0 && mobileBg) {
+        let isCultureTicking = false;
+        
+        const updateCultureBg = () => {
+            if (window.innerWidth > 768) {
+                mobileBg.style.display = 'none';
+                return;
+            }
+            mobileBg.style.display = 'block';
+            
+            const viewCenter = window.innerHeight / 2;
+            let closestRow = cultureRowItems[0];
+            let minDistance = Infinity;
+            
+            cultureRowItems.forEach(row => {
+                const rect = row.getBoundingClientRect();
+                const rowCenter = rect.top + rect.height / 2;
+                const distance = Math.abs(viewCenter - rowCenter);
+                
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    closestRow = row;
+                }
+            });
+            
+            if (closestRow) {
+                // Update active classes
+                cultureRowItems.forEach(r => r.classList.remove('active-mobile'));
+                closestRow.classList.add('active-mobile');
+                
+                // Move background
+                mobileBg.style.transform = `translateY(${closestRow.offsetTop}px)`;
+                mobileBg.style.height = `${closestRow.offsetHeight}px`;
+            }
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!isCultureTicking) {
+                window.requestAnimationFrame(() => {
+                    updateCultureBg();
+                    isCultureTicking = false;
+                });
+                isCultureTicking = true;
+            }
+        }, { passive: true });
+        
+        // Initial setup and resize handler
+        window.addEventListener('resize', updateCultureBg);
+        setTimeout(updateCultureBg, 100);
+    }
 });
